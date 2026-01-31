@@ -2,6 +2,12 @@ package by.lisakeyy.geometry.figures;
 
 public record Square(double side) {
 
+    public Square {
+        if (side < 0) {
+            throw new IllegalArgumentException("Square side should be non-negative");
+        }
+    }
+
     public static void printSquareArea(Square s) {
         String text = String.format("Square's area with a side %f = %f", s.side, s.area());
         System.out.println(text);
