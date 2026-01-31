@@ -3,8 +3,7 @@ import java.io.File;
 public class Hello {
     public static void main() {
         try {
-            var z = calculate();
-            System.out.println(z);
+            int z = calculate();
         } catch (ArithmeticException exeption) {
             exeption.printStackTrace();
         }
@@ -29,8 +28,8 @@ public class Hello {
 
     private static int calculate() {
         var x = 1;
-        var y = 1;
-        var z = devide(x, y);
+        var y = 0;
+        int z = devide(x, y);
         return z;
     }
 
