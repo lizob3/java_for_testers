@@ -24,7 +24,7 @@ public record Rectangle (double a, double b) {
         if (o == null || getClass() != o.getClass()) return false;
         Rectangle rectangle = (Rectangle) o;
         return (Double.compare(this.a, rectangle.a) == 0 && Double.compare(this.b, rectangle.b) == 0)
-                ||(Double.compare(this.a, rectangle.b) == 0 && Double.compare(this.b, rectangle.a) == 0);
+                || (Double.compare(this.a, rectangle.b) == 0 && Double.compare(this.b, rectangle.a) == 0);
     }
 
     @Override
