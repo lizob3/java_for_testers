@@ -1,5 +1,6 @@
 package manager;
 
+import model.ContactData;
 import org.openqa.selenium.By;
 
 public class ContactHelper extends HelperBase {
@@ -8,14 +9,32 @@ public class ContactHelper extends HelperBase {
         super(manager);
     }
 
-    public void createContact() {
+    public void createContact(ContactData contact) {
+        initContactCreation();
+        fillContactForm(contact);
+        submitContactCreation();
+        returnToHomePage();
+    }
+
+    private void initContactCreation() {
         click(By.linkText("add new"));
-        type(By.name("firstname"), "Test name");
-        type(By.name("lastname"), "Test last name");
-        type(By.name("address"),"Test Address");
-        type(By.name("mobile"),"+375291112233");
-        type(By.name("email"),"test@test.com");
+    }
+
+    private void fillContactForm(ContactData contact) {
+        type(By.name("firstname"), contact.firstName());
+        type(By.name("lastname"), contact.lastName());
+        type(By.name("address"), contact.address());
+        type(By.name("mobile"), contact.mobilePhone());
+        type(By.name("email"), contact.email());
+    }
+
+    private void submitContactCreation() {
         click(By.name("submit"));
+    }
+
+    private void returnToHomePage() {
         click(By.linkText("home page"));
     }
+
+
 }
