@@ -2,7 +2,6 @@ package tests;
 
 import model.ContactData;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 public class ContactCreationTests extends TestBase {
 

@@ -16,6 +16,12 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
+    public void removeContact(){
+        selectContact();
+        removeSelectedContact();
+        returnToHomePage();
+    }
+
     private void initContactCreation() {
         click(By.linkText("add new"));
     }
@@ -36,5 +42,15 @@ public class ContactHelper extends HelperBase {
         click(By.linkText("home page"));
     }
 
+    private void removeSelectedContact() {
+        click(By.name("delete"));
+    }
 
+    private void selectContact() {
+        click(By.name("selected[]"));
+    }
+
+    public boolean isContactPresent() {
+        return manager.isElementPresent(By.name("selected[]"));
+    }
 }
