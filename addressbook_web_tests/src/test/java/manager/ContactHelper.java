@@ -18,7 +18,7 @@ public class ContactHelper extends HelperBase {
 
     public void removeContact(){
         selectContact();
-        removeSelectedContact();
+        removeSelectedContacts();
         returnToHomePage();
     }
 
@@ -39,10 +39,10 @@ public class ContactHelper extends HelperBase {
     }
 
     private void returnToHomePage() {
-        click(By.linkText("home page"));
+        click(By.linkText("home"));
     }
 
-    private void removeSelectedContact() {
+    private void removeSelectedContacts() {
         click(By.name("delete"));
     }
 
@@ -52,5 +52,16 @@ public class ContactHelper extends HelperBase {
 
     public boolean isContactPresent() {
         return manager.isElementPresent(By.name("selected[]"));
+    }
+
+    public int getCount() {
+        returnToHomePage();;
+        return manager.driver.findElements(By.name("selected[]")).size();
+    }
+
+    public void removeAllContacts() {
+        returnToHomePage();
+        selectAllCheckboxes();
+        removeSelectedContacts();
     }
 }

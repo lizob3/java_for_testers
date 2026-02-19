@@ -26,6 +26,24 @@ public class TestBase {
         return result;
     }
 
+    public static String randomNumber(int n) {
+        var rnd = new Random();
+        var result = "+";
+        for  (int i = 0; i < n; i++) {
+            result = result + (char)('0' + rnd.nextInt(10));
+        }
+        return result;
+    }
+
+    public static String randomEmail(int n) {
+        var rnd = new Random();
+        var result = "";
+        for  (int i = 0; i < n; i++) {
+            result = result + (char)('a' + rnd.nextInt(26));
+        }
+        return result + "@" + result + "." + result;
+    }
+
     /*@AfterEach
     public void tearDown() {
         app.driver.findElement(By.linkText("Logout")).click();
