@@ -18,8 +18,8 @@ public class ContactCreationTests extends TestBase {
             result.add(new ContactData (firstName, firstName, "", "Address", "", "+375291112233"));
         }
         for (int i = 1; i < 5; i ++) {
-            result.add(new ContactData("", randomString(i * 10), randomString(i * 10), randomString(i * 10),
-                    randomEmail(i * 5), randomNumber(12)));
+            result.add(new ContactData("", randomString(i * 5), randomString(i * 5), randomString(i * 5),
+                    randomEmail(i * 3), randomNumber(12)));
         }
         return result;
     }

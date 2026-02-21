@@ -1,8 +1,8 @@
 package manager;
 
 import model.ContactData;
-import model.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +20,26 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
-    public void removeContact(ContactData contact){
+    public void removeContact(ContactData contact) {
         selectContact(contact);
         removeSelectedContacts();
         returnToHomePage();
+    }
+
+    public void modifyContact (ContactData contact, ContactData modifiedContact) {
+        initContactModification(contact);
+        fillContactForm(modifiedContact);
+        submitContactModification();
+        returnToHomePage();
+    }
+
+    private void submitContactModification() {
+        click(By.name("update"));
+    }
+
+    private void initContactModification(ContactData contact) {
+        var tr = manager.driver.findElement(By.xpath(String.format("//tr[td/input[@id='%s']]", contact.id())));
+        tr.findElements(By.tagName("td")).get(7).click();
     }
 
     private void initContactCreation() {
