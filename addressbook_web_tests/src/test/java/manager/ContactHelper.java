@@ -1,7 +1,11 @@
 package manager;
 
 import model.ContactData;
+import model.GroupData;
 import org.openqa.selenium.By;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -16,8 +20,8 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
-    public void removeContact(){
-        selectContact();
+    public void removeContact(ContactData contact){
+        selectContact(contact);
         removeSelectedContacts();
         returnToHomePage();
     }
@@ -46,8 +50,8 @@ public class ContactHelper extends HelperBase {
         click(By.name("delete"));
     }
 
-    private void selectContact() {
-        click(By.name("selected[]"));
+    private void selectContact(ContactData contact) {
+        click(By.cssSelector(String.format("input[value='%s']", contact.id())));
     }
 
     public boolean isContactPresent() {
@@ -63,5 +67,19 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
         selectAllCheckboxes();
         removeSelectedContacts();
+    }
+
+    public List<ContactData> getList() {
+        returnToHomePage();
+        var contacts = new ArrayList<ContactData>();
+        var trs = manager.driver.findElements(By.cssSelector("tr[name='entry']"));
+        for (var tr : trs) {
+            var firstName = tr.findElements(By.tagName("td")).get(2).getText();
+            var lastName = tr.findElements(By.tagName("td")).get(1).getText();
+            var checkbox = tr.findElement(By.name("selected[]"));
+            var id = checkbox.getAttribute("value");
+            contacts.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName));
+        }
+        return contacts;
     }
 }
