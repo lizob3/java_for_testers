@@ -14,12 +14,12 @@ public class ContactCreationTests extends TestBase {
     public static List<ContactData> contactProvider() {
         var result = new ArrayList<ContactData>();
         for (var firstName : List.of ("", "Name")) {
-            result.add(new ContactData (firstName, firstName, "Lastname", "", "test@test.com", ""));
-            result.add(new ContactData (firstName, firstName, "", "Address", "", "+375291112233"));
+            result.add(new ContactData ("", firstName, "Lastname", "", "test@test.com", "", "src/test/resources/images/avatar.png"));
+            result.add(new ContactData ("", firstName, "", "Address", "", "+375291112233", ""));
         }
         for (int i = 1; i < 5; i ++) {
             result.add(new ContactData("", randomString(i * 5), randomString(i * 5), randomString(i * 5),
-                    randomEmail(i * 3), randomNumber(12)));
+                    randomEmail(i * 3), randomNumber(12), ""));
         }
         return result;
     }
@@ -36,7 +36,7 @@ public class ContactCreationTests extends TestBase {
         newContacts.sort(compareById);
 
         var expectedList = new ArrayList<>(oldContacts);
-        expectedList.add(contact.withId(newContacts.get(newContacts.size()-1).id()).withAddress("").withEmail("").withMobilePhone(""));
+        expectedList.add(contact.withId(newContacts.get(newContacts.size()-1).id()).withAddress("").withEmail("").withMobilePhone("").withPhoto(""));
         expectedList.sort(compareById);
 
         Assertions.assertEquals(expectedList, newContacts);
