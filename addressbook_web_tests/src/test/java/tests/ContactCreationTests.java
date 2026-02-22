@@ -19,7 +19,7 @@ public class ContactCreationTests extends TestBase {
         }
         for (int i = 1; i < 5; i ++) {
             result.add(new ContactData("", randomString(i * 5), randomString(i * 5), randomString(i * 5),
-                    randomEmail(i * 3), randomNumber(12), ""));
+                    randomEmail(i * 3), randomNumber(12), randomFile("src/test/resources/images")));
         }
         return result;
     }
