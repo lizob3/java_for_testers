@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import common.CommonFunctions;
 import model.GroupData;
 
-import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -41,16 +41,16 @@ public class Generator {
 
     private Object generate() {
         if ("groups".equals(type)) {
-            return GenerateGroups();
+            return generateGroups();
         }
         if ("contacts".equals(type)) {
-            return GenerateContacts();
+            return generateContacts();
         } else {
             throw new IllegalArgumentException("Неизвестный тип данных" + type);
         }
     }
 
-    private Object GenerateGroups() {
+    private Object generateGroups() {
         var result = new ArrayList<GroupData>();
         for (int i = 0; i < count; i ++) {
             result.add(new GroupData()
@@ -61,7 +61,7 @@ public class Generator {
         return result;
     }
 
-    private Object GenerateContacts() {
+    private Object generateContacts() {
         return null;
     }
 
@@ -69,7 +69,11 @@ public class Generator {
         if ("json".equals(format)) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.enable(SerializationFeature.INDENT_OUTPUT);
-            mapper.writeValue(new File(output), data);
+            var json = mapper.writeValueAsString(data);
+
+            try (var writer = new FileWriter(output)) {
+                writer.write(json);
+            }
         } else {
             throw new IllegalArgumentException("Неизвестный формат данных" + format);
         }
