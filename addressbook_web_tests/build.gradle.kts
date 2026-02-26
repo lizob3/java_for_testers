@@ -15,6 +15,7 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.seleniumhq.selenium:selenium-java:4.40.0")
     implementation("org.jcommander:jcommander:3.0")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.21.1")
 }
 
 tasks.test {
