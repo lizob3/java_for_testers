@@ -2,6 +2,7 @@ package tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import common.CommonFunctions;
 import model.GroupData;
@@ -41,9 +42,9 @@ public class GroupCreationTests extends TestBase {
 //                line = breader.readLine();
 //            }
 //        }
-        var json = Files.readString(Paths.get("groups.yaml"));
-        ObjectMapper mapper = new YAMLMapper();
-        var value = mapper.readValue(json, new TypeReference<List<GroupData>>() {});
+        //var json = Files.readString(Paths.get("groups.yaml"));
+        var mapper = new XmlMapper();
+        var value = mapper.readValue(new File("groups.xml"), new TypeReference<List<GroupData>>() {});
         result.addAll(value);
         return result;
     }
