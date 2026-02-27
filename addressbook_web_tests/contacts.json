@@ -1,0 +1,25 @@
+[ {
+  "id" : "",
+  "firstName" : "",
+  "lastName" : "",
+  "address" : "",
+  "email" : "@.",
+  "mobilePhone" : "+928371921236",
+  "photo" : "src\\test\\resources\\images\\alien.png"
+}, {
+  "id" : "",
+  "firstName" : "fuxry",
+  "lastName" : "jhjhz",
+  "address" : "bnrdn",
+  "email" : "vpr@vpr.vpr",
+  "mobilePhone" : "+330993621418",
+  "photo" : "src\\test\\resources\\images\\avatar.png"
+}, {
+  "id" : "",
+  "firstName" : "phoybldekd",
+  "lastName" : "whzlnljkfp",
+  "address" : "bvdgovahjb",
+  "email" : "aofklf@aofklf.aofklf",
+  "mobilePhone" : "+376228278188",
+  "photo" : "src\\test\\resources\\images\\man.png"
+} ]

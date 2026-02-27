@@ -89,7 +89,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public List<ContactData> getList() {
-        returnToHomePage();
+//        returnToHomePage();
         var contacts = new ArrayList<ContactData>();
         var trs = manager.driver.findElements(By.cssSelector("tr[name='entry']"));
         for (var tr : trs) {
