@@ -49,7 +49,7 @@ public class Generator {
         if ("groups".equals(type)) {
             return generateGroups();
         }
-        if ("contacts".equals(type)) {
+        else if ("contacts".equals(type)) {
             return generateContacts();
         } else {
             throw new IllegalArgumentException("Неизвестный тип данных" + type);
