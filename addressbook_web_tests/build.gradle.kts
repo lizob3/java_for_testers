@@ -19,6 +19,7 @@ dependencies {
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2")
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.18.1")
     implementation("com.mysql:mysql-connector-j:9.6.0")
+    implementation("org.hibernate.orm:hibernate-core:7.2.6.Final")
 }
 
 tasks.test {

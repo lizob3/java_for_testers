@@ -1,5 +1,6 @@
 package manager;
 
+import org.hibernate.Hibernate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,6 +23,8 @@ public class ApplicationManager {
     private Properties properties;
 
     private JdbcHelper jdbc;
+
+    private HibernateHelper hbm;
 
     public void init(String browser, Properties properties) {
         this.properties = properties;
@@ -65,6 +68,13 @@ public class ApplicationManager {
             jdbc = new JdbcHelper(this);
         }
         return jdbc;
+    }
+
+    public HibernateHelper hbm() {
+        if (hbm == null) {
+            hbm = new HibernateHelper(this);
+        }
+        return hbm;
     }
 
     public boolean isElementPresent(By locator) {
