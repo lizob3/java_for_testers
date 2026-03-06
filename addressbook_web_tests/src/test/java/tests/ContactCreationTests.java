@@ -23,10 +23,6 @@ public class ContactCreationTests extends TestBase {
             result.add(new ContactData ("", firstName, "Lastname", "", "test@test.com", "", "src/test/resources/images/avatar.png"));
             result.add(new ContactData ("", firstName, "", "Address", "", "+375291112233", ""));
         }
-//        for (int i = 1; i < 5; i ++) {
-//            result.add(new ContactData("", CommonFunctions.randomString(i * 5), CommonFunctions.randomString(i * 5), CommonFunctions.randomString(i * 5),
-//                    randomEmail(i * 3), randomNumber(12), randomFile("src/test/resources/images")));
-//        }
 
         var mapper = new ObjectMapper();
         var value = mapper.readValue(new File("contacts.json"), new TypeReference<List<ContactData>>() {});
@@ -35,19 +31,25 @@ public class ContactCreationTests extends TestBase {
         return result;
     }
 
+    public static List<ContactData> singleRandomContactProvider() {
+        return List.of(new ContactData().withFirstName(CommonFunctions.randomString(5)).withLastName(CommonFunctions.randomString(7))
+                .withAddress(CommonFunctions.randomString(9)).withEmail(CommonFunctions.randomEmail(7))
+                .withMobilePhone(CommonFunctions.randomNumber(12)));
+    }
+
     @ParameterizedTest
-    @MethodSource("contactProvider")
-    public void canCreateMultipleContact(ContactData contact) {
-        var oldContacts = app.contacts().getList();
+    @MethodSource("singleRandomContactProvider")
+    public void canCreateContact(ContactData contact) {
+        var oldContacts = app.hbm().getContactList();
         app.contacts().createContact(contact);
-        var newContacts = app.contacts().getList();
+        var newContacts = app.hbm().getContactList();
         Comparator<ContactData> compareById = (o1, o2) -> {
             return Integer.compare(Integer.parseInt(o1.id()), Integer.parseInt(o2.id()));
         };
         newContacts.sort(compareById);
 
         var expectedList = new ArrayList<>(oldContacts);
-        expectedList.add(contact.withId(newContacts.get(newContacts.size()-1).id()).withAddress("").withEmail("").withMobilePhone("").withPhoto(""));
+        expectedList.add(contact.withId(newContacts.get(newContacts.size()-1).id()).withPhoto(null));
         expectedList.sort(compareById);
 
         Assertions.assertEquals(expectedList, newContacts);

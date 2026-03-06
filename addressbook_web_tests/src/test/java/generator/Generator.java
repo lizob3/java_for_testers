@@ -15,8 +15,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static tests.TestBase.*;
-
 public class Generator {
 
     @Parameter(names={"--type", "-t"})
@@ -71,7 +69,7 @@ public class Generator {
         var result = new ArrayList<ContactData>();
         for (int i = 0; i < count; i ++) {
             result.add(new ContactData("", CommonFunctions.randomString(i * 5), CommonFunctions.randomString(i * 5), CommonFunctions.randomString(i * 5),
-                    randomEmail(i * 3), randomNumber(12), randomFile("src/test/resources/images")));
+                    CommonFunctions.randomEmail(i * 3), CommonFunctions.randomNumber(12), CommonFunctions.randomFile("src/test/resources/images")));
         }
         return result;
     }
