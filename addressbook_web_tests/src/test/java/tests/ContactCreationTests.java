@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import common.CommonFunctions;
 import model.ContactData;
+import model.GroupData;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -51,7 +52,14 @@ public class ContactCreationTests extends TestBase {
         var expectedList = new ArrayList<>(oldContacts);
         expectedList.add(contact.withId(newContacts.get(newContacts.size()-1).id()).withPhoto(null));
         expectedList.sort(compareById);
-
         Assertions.assertEquals(expectedList, newContacts);
+
+        var newUiContacts = app.contacts().getList();
+        newUiContacts.sort(compareById);
+        var newContactsWithEmptyFields = new ArrayList<ContactData>();
+        for (var newContact : newContacts) {
+            newContactsWithEmptyFields.add(newContact.withAddress("").withEmail("").withMobilePhone("").withPhoto(""));
+        }
+        Assertions.assertEquals(newContactsWithEmptyFields, newUiContacts);
     }
 }
