@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "addressbook")
 public class ContactRecord {
@@ -28,6 +30,17 @@ public class ContactRecord {
 
     @Column(name = "mobile")
     public String mobilePhone;
+
+    public String middlename = "middlename";
+    public String nickname = "nickname";
+    public String company = "company";
+    public String title = "title";
+    public String home = "home";
+    public String work = "work";
+    public String fax = "fax";
+    public String email2 = "email2";
+    public String email3 = "email3";
+    public String homepage = "homepage";
 
     public ContactRecord() {
 

@@ -21,12 +21,14 @@ public class ContactHelper extends HelperBase {
     }
 
     public void removeContact(ContactData contact) {
+        returnToHomePage();
         selectContact(contact);
         removeSelectedContacts();
         returnToHomePage();
     }
 
     public void modifyContact (ContactData contact, ContactData modifiedContact) {
+        returnToHomePage();
         initContactModification(contact);
         fillContactForm(modifiedContact);
         submitContactModification();
