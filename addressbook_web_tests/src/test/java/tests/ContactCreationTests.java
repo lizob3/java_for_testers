@@ -7,6 +7,7 @@ import common.CommonFunctions;
 import model.ContactData;
 import model.GroupData;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
+import static common.CommonFunctions.randomFile;
 
 public class ContactCreationTests extends TestBase {
 
@@ -61,5 +64,21 @@ public class ContactCreationTests extends TestBase {
             newContactsWithEmptyFields.add(newContact.withAddress("").withEmail("").withMobilePhone("").withPhoto(""));
         }
         Assertions.assertEquals(newContactsWithEmptyFields, newUiContacts);
+    }
+
+    @Test
+    void canCreateContactinGroup() {
+        var contact = new ContactData().withFirstName(CommonFunctions.randomString(5)).withLastName(CommonFunctions.randomString(7))
+                .withAddress(CommonFunctions.randomString(9)).withEmail(CommonFunctions.randomEmail(7))
+                .withMobilePhone(CommonFunctions.randomNumber(12)).withPhoto(randomFile("src/test/resources/images"));
+        if (app.hbm().getGroupCount() == 0) {
+            app.hbm().createGroup(new GroupData("", "name name", "name header", "name footer"));
+        }
+        var group = app.hbm().getGroupList().get(0);
+
+        var oldRelated = app.hbm().getContactsInGroup(group);
+        app.contacts().createContact(contact, group);
+        var newRelated = app.hbm().getContactsInGroup(group);
+        Assertions.assertEquals(oldRelated.size() + 1, newRelated.size());
     }
 }
