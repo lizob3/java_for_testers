@@ -133,4 +133,16 @@ public class ContactHelper extends HelperBase {
         }
         return contacts;
     }
+
+    public void addContactToGroup(ContactData contact, GroupData group) {
+        returnToHomePage();
+        selectContact(contact);
+        selectGroupInList(group, "to_group");
+        addSelectedContactToGroup();
+        returnToHomePage();
+    }
+
+    private void addSelectedContactToGroup() {
+        click(By.name("add"));
+    }
 }

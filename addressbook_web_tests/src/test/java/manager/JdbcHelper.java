@@ -72,7 +72,6 @@ public class JdbcHelper extends HelperBase {
     }
 
     public GroupData getOneGroupWithContacts() {
-
         try (var conn = DriverManager.getConnection("jdbc:mysql://localhost/addressbook", "root", "");
              var statement = conn.createStatement();
              var result = statement.executeQuery(

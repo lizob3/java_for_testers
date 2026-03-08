@@ -76,7 +76,7 @@ public class HibernateHelper extends HelperBase {
 
     public List<ContactData> getContactList() {
         return convertContactRecord(sessionFactory.fromSession(session -> {
-            return session.createQuery("from ContactRecord", ContactRecord.class).list();
+            return session.createQuery("from ContactRecord order by id ASC", ContactRecord.class).list();
         }));
     }
 
@@ -100,12 +100,13 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
-    public void createContact(ContactData data) {
+    public ContactData createContact(ContactData data) {
         sessionFactory.inSession(session -> {
             session.getTransaction().begin();
             session.persist(convertContactData(data));
             session.getTransaction().commit();
         });
+        return data;
     }
 
     public List<ContactData> getContactsInGroup(GroupData group) {
@@ -120,4 +121,12 @@ public class HibernateHelper extends HelperBase {
         });
     }
 
+    public Boolean isContactsInGroup(ContactData contact, GroupData group) {
+        Long count = sessionFactory.fromSession(session -> {
+            return session.createQuery("select count (*) from GroupRecord g join g.contacts c " +
+                    "where g.id = :groupId and c.id = :contactId", Long.class).setParameter("groupId", group.id())
+                    .setParameter("contactId", contact.id()).getSingleResult();
+        });
+        return count > 0;
+    }
 }
