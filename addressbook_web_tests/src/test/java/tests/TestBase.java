@@ -1,6 +1,7 @@
 package tests;
 
 import manager.ApplicationManager;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.io.FileReader;
@@ -20,6 +21,14 @@ public class TestBase {
             app.init(System.getProperty("browser", "firefox"), properties);
         }
     }
+
+
+    @AfterEach
+    void checktDatabaseConsistency() {
+        app.jdbc().checkConsistency();
+    }
+
+
 
     /*@AfterEach
     public void tearDown() {

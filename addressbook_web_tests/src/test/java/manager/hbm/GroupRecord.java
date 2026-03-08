@@ -29,6 +29,7 @@ public class GroupRecord {
             joinColumns = @JoinColumn(name = "group_id"),
             inverseJoinColumns = @JoinColumn(name = "id")
     )
+    @OrderBy("id")
     public List<ContactRecord> contacts;
 
     public GroupRecord() {

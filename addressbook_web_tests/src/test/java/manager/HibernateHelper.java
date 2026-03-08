@@ -113,4 +113,10 @@ public class HibernateHelper extends HelperBase {
             return convertContactRecord(session.get(GroupRecord.class, group.id()).contacts);
         });
     }
+
+    public ContactData getLastContactInGroup(GroupData group) {
+        return sessionFactory.fromSession(session -> {
+            return convert(session.get(GroupRecord.class, group.id()).contacts.getLast());
+        });
+    }
 }
