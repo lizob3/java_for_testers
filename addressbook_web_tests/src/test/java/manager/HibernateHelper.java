@@ -119,4 +119,5 @@ public class HibernateHelper extends HelperBase {
             return convert(session.get(GroupRecord.class, group.id()).contacts.getLast());
         });
     }
+
 }
