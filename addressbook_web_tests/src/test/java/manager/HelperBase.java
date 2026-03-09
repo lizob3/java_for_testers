@@ -1,6 +1,7 @@
 package manager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.nio.file.Paths;
 
@@ -26,9 +27,8 @@ public class HelperBase {
     }
 
     protected void selectAllCheckboxes() {
-        var checkboxes = manager.driver.findElements(By.name("selected[]"));
-        for (var checkbox : checkboxes) {
-            checkbox.click();
-        }
+        manager.driver
+                .findElements(By.name("selected[]"))
+                .forEach(WebElement::click);
     }
 }
