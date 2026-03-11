@@ -73,7 +73,7 @@ public class Generator {
                 .withAddress(CommonFunctions.randomString(5))
                 .withEmail(CommonFunctions.randomEmail(3))
                 .withMobilePhone(CommonFunctions.randomNumber(12))
-                .withPhoto(CommonFunctions.randomFile("src/test/resources/images"));
+                .withPhoto(CommonFunctions.randomFile("src/test/resources/images")));
     }
 
     private void save(Object data) throws IOException {
