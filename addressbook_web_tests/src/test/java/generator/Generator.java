@@ -14,19 +14,22 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Generator {
 
-    @Parameter(names={"--type", "-t"})
+    @Parameter(names = {"--type", "-t"})
     String type;
 
-    @Parameter(names={"--output", "-o"})
+    @Parameter(names = {"--output", "-o"})
     String output;
 
-    @Parameter(names={"--format", "-f"})
+    @Parameter(names = {"--format", "-f"})
     String format;
 
-    @Parameter(names={"--count", "-n"})
+    @Parameter(names = {"--count", "-n"})
     int count;
 
     public static void main(String[] args) throws IOException {
@@ -46,32 +49,31 @@ public class Generator {
     private Object generate() {
         if ("groups".equals(type)) {
             return generateGroups();
-        }
-        else if ("contacts".equals(type)) {
+        } else if ("contacts".equals(type)) {
             return generateContacts();
         } else {
             throw new IllegalArgumentException("Неизвестный тип данных" + type);
         }
     }
 
+    private Object generateData(Supplier<Object> dataSupplier) {
+        return Stream.generate(dataSupplier).limit(count).collect(Collectors.toList());
+    }
+
     private Object generateGroups() {
-        var result = new ArrayList<GroupData>();
-        for (int i = 0; i < count; i ++) {
-            result.add(new GroupData()
-                    .withName(CommonFunctions.randomString(i * 10))
-                    .withHeader(CommonFunctions.randomString(i * 10))
-                    .withFooter(CommonFunctions.randomString(i * 10)));
-        }
-        return result;
+        return generateData(() -> new GroupData()
+                .withName(CommonFunctions.randomString(10))
+                .withHeader(CommonFunctions.randomString(10))
+                .withFooter(CommonFunctions.randomString(10)));
     }
 
     private Object generateContacts() {
-        var result = new ArrayList<ContactData>();
-        for (int i = 0; i < count; i ++) {
-            result.add(new ContactData("", CommonFunctions.randomString(i * 5), CommonFunctions.randomString(i * 5), CommonFunctions.randomString(i * 5),
-                    CommonFunctions.randomEmail(i * 3), CommonFunctions.randomNumber(12), CommonFunctions.randomFile("src/test/resources/images")));
-        }
-        return result;
+        return generateData(() -> new ContactData().withFirstName(CommonFunctions.randomString(5))
+                .withLastName(CommonFunctions.randomString(5))
+                .withAddress(CommonFunctions.randomString(5))
+                .withEmail(CommonFunctions.randomEmail(3))
+                .withMobilePhone(CommonFunctions.randomNumber(12))
+                .withPhoto(CommonFunctions.randomFile("src/test/resources/images"));
     }
 
     private void save(Object data) throws IOException {
@@ -89,8 +91,7 @@ public class Generator {
         } else if ("xml".equals(format)) {
             var mapper = new XmlMapper();
             mapper.writeValue(new File(output), data);
-        }
-        else {
+        } else {
             throw new IllegalArgumentException("Неизвестный формат данных: " + format);
         }
     }

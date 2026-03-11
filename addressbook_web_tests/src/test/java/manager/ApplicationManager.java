@@ -12,7 +12,7 @@ import java.util.Properties;
 
 public class ApplicationManager {
 
-    protected WebDriver driver;
+    public WebDriver driver;
 
     private LoginHelper session;
 
