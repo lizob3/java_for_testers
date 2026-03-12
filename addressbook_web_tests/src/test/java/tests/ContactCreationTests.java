@@ -2,7 +2,6 @@ package tests;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import common.CommonFunctions;
 import model.ContactData;
 import model.GroupData;
@@ -24,8 +23,8 @@ public class ContactCreationTests extends TestBase {
     public static List<ContactData> contactProvider() throws IOException {
         var result = new ArrayList<ContactData>();
         for (var firstName : List.of ("", "Name")) {
-            result.add(new ContactData ("", firstName, "Lastname", "", "test@test.com", "", "src/test/resources/images/avatar.png"));
-            result.add(new ContactData ("", firstName, "", "Address", "", "+375291112233", ""));
+            result.add(new ContactData ("", firstName, "Lastname", "", "test@test.com", "", "", "", "src/test/resources/images/avatar.png"));
+            result.add(new ContactData ("", firstName, "", "Address", "", "+375291112233", "", "", ""));
         }
 
         var mapper = new ObjectMapper();

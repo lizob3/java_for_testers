@@ -14,7 +14,7 @@ public class ContactRemovalTest extends TestBase {
     public void canRemoveContact() {
         if (app.hbm().getContactCount() == 0) {
             app.hbm().createContact(
-                    new ContactData("", "Name", "Lastname", "Address", "test@test.com", "+375291112233", ""));
+                    new ContactData("", "Name", "Lastname", "Address", "test@test.com", "+375291112233", "", "", ""));
         }
         var oldContacts = app.hbm().getContactList();
         var rnd = new Random();
@@ -30,7 +30,7 @@ public class ContactRemovalTest extends TestBase {
     void canRemoveAllContactsAtOnce() {
         if (app.hbm().getContactCount() == 0) {
             app.hbm().createContact(
-                    new ContactData("", "Name", "Lastname", "Address", "test@test.com", "+375291112233", ""));
+                    new ContactData("", "Name", "Lastname", "Address", "test@test.com", "+375291112233", "", "", ""));
         }
         app.contacts().removeAllContacts();
         Assertions.assertEquals(0, app.contacts().getCount());
@@ -41,7 +41,7 @@ public class ContactRemovalTest extends TestBase {
         if (app.jdbc().getContactsInGroupCount() == 0) {
             if (app.hbm().getContactCount() == 0) {
                 app.hbm().createContact(
-                        new ContactData("", "Name", "Lastname", "Address", "test@test.com", "+375291112233", ""));
+                        new ContactData("", "Name", "Lastname", "Address", "test@test.com", "+375291112233", "", "", ""));
             }
             if (app.hbm().getGroupCount() == 0) {
                 app.hbm().createGroup(new GroupData("", "name name", "name header", "name footer"));

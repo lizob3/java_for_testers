@@ -28,12 +28,16 @@ public class ContactRecord {
     @Column(name = "mobile")
     public String mobilePhone;
 
+    @Column(name = "home")
+    public String homePhone;
+
+    @Column(name = "work")
+    public String workPhone;
+
     public String middlename = "middlename";
     public String nickname = "nickname";
     public String company = "company";
     public String title = "title";
-    public String home = "home";
-    public String work = "work";
     public String fax = "fax";
     public String email2 = "email2";
     public String email3 = "email3";
