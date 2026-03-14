@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 import static common.CommonFunctions.randomFile;
 
@@ -23,8 +25,8 @@ public class ContactCreationTests extends TestBase {
     public static List<ContactData> contactProvider() throws IOException {
         var result = new ArrayList<ContactData>();
         for (var firstName : List.of ("", "Name")) {
-            result.add(new ContactData ("", firstName, "Lastname", "", "test@test.com", "", "", "", "src/test/resources/images/avatar.png"));
-            result.add(new ContactData ("", firstName, "", "Address", "", "+375291112233", "", "", ""));
+            result.add(new ContactData ("", firstName, "Lastname", "", "test@test.com", "", "", "", "src/test/resources/images/avatar.png", "", ""));
+            result.add(new ContactData ("", firstName, "", "Address", "", "", "", "", "", "+375291112233", ""));
         }
 
         var mapper = new ObjectMapper();
@@ -34,14 +36,17 @@ public class ContactCreationTests extends TestBase {
         return result;
     }
 
-    public static List<ContactData> singleRandomContactProvider() {
-        return List.of(new ContactData().withFirstName(CommonFunctions.randomString(5)).withLastName(CommonFunctions.randomString(7))
+    public static Stream<ContactData> RandomContactProvider() {
+        Supplier<ContactData> randomContact = () -> new ContactData().withFirstName(CommonFunctions.randomString(5))
+                .withLastName(CommonFunctions.randomString(7))
                 .withAddress(CommonFunctions.randomString(9)).withEmail(CommonFunctions.randomEmail(7))
-                .withMobilePhone(CommonFunctions.randomNumber(12)));
+                .withEmail2(CommonFunctions.randomEmail(7)).withEmail3(CommonFunctions.randomEmail(7))
+                .withMobilePhone(CommonFunctions.randomNumber(12));
+        return Stream.generate(randomContact).limit(2);
     }
 
     @ParameterizedTest
-    @MethodSource("singleRandomContactProvider")
+    @MethodSource("RandomContactProvider")
     public void canCreateContact(ContactData contact) {
         var oldContacts = app.hbm().getContactList();
         app.contacts().createContact(contact);
@@ -60,7 +65,9 @@ public class ContactCreationTests extends TestBase {
         newUiContacts.sort(compareById);
         var newContactsWithEmptyFields = new ArrayList<ContactData>();
         for (var newContact : newContacts) {
-            newContactsWithEmptyFields.add(newContact.withAddress("").withEmail("").withMobilePhone("").withPhoto(""));
+            newContactsWithEmptyFields.add(newContact.withAddress("")
+                    .withEmail("").withEmail2("").withEmail3("").withMobilePhone("")
+                    .withWorkPhone("").withHomePhone("").withPhoto(""));
         }
         Assertions.assertEquals(newContactsWithEmptyFields, newUiContacts);
     }

@@ -6,11 +6,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ContactHelper extends HelperBase {
 
@@ -22,7 +23,7 @@ public class ContactHelper extends HelperBase {
         initContactCreation();
         fillContactForm(contact);
         submitContactCreation();
-        returnToHomePage();
+        openHomePage();
     }
 
     public void createContact(ContactData contact, GroupData group) {
@@ -30,7 +31,7 @@ public class ContactHelper extends HelperBase {
         fillContactForm(contact);
         selectGroup(group, "new_group");
         submitContactCreation();
-        returnToHomePage();
+        openHomePage();
     }
 
     private void selectGroup(GroupData group, String htmlElementName) {
@@ -38,18 +39,18 @@ public class ContactHelper extends HelperBase {
     }
 
     public void removeContact(ContactData contact) {
-        returnToHomePage();
+        openHomePage();
         selectContact(contact);
         removeSelectedContacts();
-        returnToHomePage();
+        openHomePage();
     }
 
     public void removeContactFromGroup(GroupData group, ContactData contact) {
-        returnToHomePage();
+        openHomePage();
         selectGroupInList(group, "group");
         selectContact(contact);
         removeSelectedContactsFromGroup();
-        returnToHomePage();
+        openHomePage();
         selectGroupInList(group, "group");
     }
 
@@ -62,11 +63,11 @@ public class ContactHelper extends HelperBase {
     }
 
     public void modifyContact (ContactData contact, ContactData modifiedContact) {
-        returnToHomePage();
+        openHomePage();
         initContactModification(contact);
         fillContactForm(modifiedContact);
         submitContactModification();
-        returnToHomePage();
+        openHomePage();
     }
 
     private void submitContactModification() {
@@ -88,6 +89,8 @@ public class ContactHelper extends HelperBase {
         type(By.name("address"), contact.address());
         type(By.name("mobile"), contact.mobilePhone());
         type(By.name("email"), contact.email());
+        type(By.name("email2"), contact.email2());
+        type(By.name("email3"), contact.email3());
         if (contact.photo() != null && !contact.photo().isEmpty()) {
             attach(By.name("photo"), contact.photo());
         }
@@ -97,7 +100,7 @@ public class ContactHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    private void returnToHomePage() {
+    private void openHomePage() {
         click(By.linkText("home"));
     }
 
@@ -114,12 +117,12 @@ public class ContactHelper extends HelperBase {
     }
 
     public int getCount() {
-        returnToHomePage();;
+        openHomePage();;
         return manager.driver.findElements(By.name("selected[]")).size();
     }
 
     public void removeAllContacts() {
-        returnToHomePage();
+        openHomePage();
         selectAllCheckboxes();
         removeSelectedContacts();
     }
@@ -139,18 +142,18 @@ public class ContactHelper extends HelperBase {
     }
 
     public void addContactToGroup(ContactData contact, GroupData group) {
-        returnToHomePage();
+        openHomePage();
         selectContact(contact);
         selectGroupInList(group, "to_group");
         addSelectedContactToGroup();
-        returnToHomePage();
+        openHomePage();
     }
 
     private void addSelectedContactToGroup() {
         click(By.name("add"));
     }
 
-    public String getPhones(ContactData contact) {
+    public String getPhonesFromMainPage(ContactData contact) {
         return manager.driver.findElement(By.xpath(
                 String.format("//input[@id='%s']/../../td[6]", contact.id()))).getText();
     }
@@ -164,5 +167,59 @@ public class ContactHelper extends HelperBase {
             result.put(id, phones);
         }
         return result;
+    }
+
+    public String getAddressFromMainPage(ContactData contact) {
+        return manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[4]", contact.id()))).getText();
+    }
+
+    private void openEditPage(ContactData contact) {
+        manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[8]", contact.id()))).click();
+    }
+
+    public Map<String, String> getInfoFormMainPage(ContactData contact) {
+        var info = new HashMap<String, String>();
+        var address = getAddressFromMainPage(contact);
+        var phones = getPhonesFromMainPage(contact);
+        var emails = getEmailsFromMainPage(contact);
+
+        info.put("address", address);
+        info.put("phones", phones);
+        info.put("emails", emails);
+
+        return info;
+    }
+
+    private String getEmailsFromMainPage(ContactData contact) {
+        return manager.driver.findElement(By.xpath(
+                String.format("//input[@id='%s']/../../td[5]", contact.id()))).getText();
+    }
+
+    public Map<String, String> getInfoFromEditPage(ContactData contact) {
+        openEditPage(contact);
+
+        var info = new HashMap<String, String>();
+
+        var address = manager.driver.findElement(By.name("address")).getText();
+
+        var homePhone = manager.driver.findElement(By.name("home")).getAttribute("value");
+        var mobilePhone = manager.driver.findElement(By.name("mobile")).getAttribute("value");
+        var workPhone = manager.driver.findElement(By.name("work")).getAttribute("value");
+        var phones = Stream.of(homePhone, mobilePhone, workPhone)
+                .filter(s -> s != null && !"".equals(s)).collect(Collectors.joining("\n"));
+
+        var email = manager.driver.findElement(By.name("email")).getAttribute("value");
+        var email2 = manager.driver.findElement(By.name("email2")).getAttribute("value");
+        var email3 = manager.driver.findElement(By.name("email3")).getAttribute("value");
+        var emails = Stream.of(email, email2, email3)
+                .filter(s -> s != null && !"".equals(s)).collect(Collectors.joining("\n"));
+
+        info.put("address", address);
+        info.put("phones", phones);
+        info.put("emails", emails);
+
+        return info;
     }
 }
