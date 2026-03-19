@@ -18,6 +18,7 @@ dependencies {
     testImplementation("com.squareup.okhttp3:okhttp-urlconnection:5.3.0")
     testImplementation("org.apache.james:james-server-fetchmail:3.8.2")
     testImplementation("org.apache.commons:commons-exec:1.6.0")
+    testImplementation("org.eclipse.angus:angus-mail:2.1.0-M1")
 }
 
 tasks.test {
