@@ -15,7 +15,7 @@ public class MailHelper extends HelperBase {
         super(manager);
     }
 
-    public List<MailMessage> recieve(String username, String password, Duration duration) {
+    public List<MailMessage> receive(String username, String password, Duration duration) {
         var start = System.currentTimeMillis();
         while (System.currentTimeMillis() < start + duration.toMillis()) {
             try {
@@ -63,7 +63,6 @@ public class MailHelper extends HelperBase {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public void drain(String username, String password) {
@@ -83,6 +82,5 @@ public class MailHelper extends HelperBase {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
