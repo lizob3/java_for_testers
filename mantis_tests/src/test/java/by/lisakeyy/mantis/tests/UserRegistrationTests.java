@@ -1,17 +1,40 @@
 package by.lisakeyy.mantis.tests;
 
-import org.junit.jupiter.api.Test;
+import by.lisakeyy.mantis.common.CommonFunctions;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.time.Duration;
+import java.util.function.Supplier;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class UserRegistrationTests extends TestBase {
 
-    @Test
+    public static Stream<String> RandomUsernameProvider() {
+        Supplier<String> randomUsername = () -> CommonFunctions.randomString(5);
+        return Stream.generate(randomUsername).limit(2);
+    }
+
+    @ParameterizedTest
+    @MethodSource("RandomUsernameProvider")
     void canRegisterUser(String username) {
         var email = String.format("%s@localhost", username);
-        // создать пользователя (адрес) на почтовом сервера (JamesHelper)
-        // заполнить и отправить форму создания (браузер - создать класс-помощник)
-        // подождать почту (MailHelper)
-        // извлечь ссылку из письма
-        // пройти по ссылке и завершить регистрацию (браузер - создать класс-помощник)
-        // проверить, что пользователь может залогиниться (HttpSessionHelper)
+        var password = "password";
+        // create user on James (JamesHelper)
+        app.jamesCli().addUser(email, password);
+        // fill and send form (WebSiteHelper)
+        app.website().startCreatingAccount(username, email);
+        // wait for mail (MailHelper)
+        var messages = app.mail().receive(email, password, Duration.ofSeconds(10));
+        // extract link from message
+        var url = app.mail().extractLink(messages);
+        // follow the link and finish creating account (WebSiteHelper)
+        app.driver().get(url);
+        app.website().finishCreatingAccount(username, password);
+        // make sure user can login (HttpSessionHelper)
+        app.http().login(username, password);
+        Assertions.assertTrue(app.http().isLoggedIn());
     }
 }
