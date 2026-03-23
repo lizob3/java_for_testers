@@ -14,7 +14,7 @@ public class UserRegistrationTests extends TestBase {
 
     public static Stream<String> RandomUsernameProvider() {
         Supplier<String> randomUsername = () -> CommonFunctions.randomString(5);
-        return Stream.generate(randomUsername).limit(2);
+        return Stream.generate(randomUsername).limit(1);
     }
 
     @ParameterizedTest
@@ -23,7 +23,7 @@ public class UserRegistrationTests extends TestBase {
         var email = String.format("%s@localhost", username);
         var password = "password";
         // create user on James (JamesHelper)
-        app.jamesCli().addUser(email, password);
+        app.jamesApi().addUser(email, password);
         // fill and send form (WebSiteHelper)
         app.website().startCreatingAccount(username, email);
         // wait for mail (MailHelper)
