@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ProjectApi {
     private ApiClient localVarApiClient;
@@ -79,15 +80,14 @@ public class ProjectApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with project details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call projectGetCall(@javax.annotation.Nonnull Long projectId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call projectGetCall(Long projectId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -136,7 +136,7 @@ public class ProjectApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call projectGetValidateBeforeCall(@javax.annotation.Nonnull Long projectId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call projectGetValidateBeforeCall(Long projectId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
             throw new ApiException("Missing the required parameter 'projectId' when calling projectGet(Async)");
@@ -153,15 +153,14 @@ public class ProjectApi {
      * @return GetProjectResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with project details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public GetProjectResponse projectGet(@javax.annotation.Nonnull Long projectId) throws ApiException {
+    public GetProjectResponse projectGet(Long projectId) throws ApiException {
         ApiResponse<GetProjectResponse> localVarResp = projectGetWithHttpInfo(projectId);
         return localVarResp.getData();
     }
@@ -173,15 +172,14 @@ public class ProjectApi {
      * @return ApiResponse&lt;GetProjectResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with project details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<GetProjectResponse> projectGetWithHttpInfo(@javax.annotation.Nonnull Long projectId) throws ApiException {
+    public ApiResponse<GetProjectResponse> projectGetWithHttpInfo(Long projectId) throws ApiException {
         okhttp3.Call localVarCall = projectGetValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<GetProjectResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -195,15 +193,14 @@ public class ProjectApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with project details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call projectGetAsync(@javax.annotation.Nonnull Long projectId, final ApiCallback<GetProjectResponse> _callback) throws ApiException {
+    public okhttp3.Call projectGetAsync(Long projectId, final ApiCallback<GetProjectResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = projectGetValidateBeforeCall(projectId, _callback);
         Type localVarReturnType = new TypeToken<GetProjectResponse>(){}.getType();

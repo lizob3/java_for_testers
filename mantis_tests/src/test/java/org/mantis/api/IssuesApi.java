@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class IssuesApi {
     private ApiClient localVarApiClient;
@@ -80,15 +81,14 @@ public class IssuesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Issue successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call issueAddCall(@javax.annotation.Nonnull Issue body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call issueAddCall(Issue body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -121,6 +121,7 @@ public class IssuesApi {
         }
 
         final String[] localVarContentTypes = {
+                "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -132,7 +133,7 @@ public class IssuesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call issueAddValidateBeforeCall(@javax.annotation.Nonnull Issue body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call issueAddValidateBeforeCall(Issue body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling issueAdd(Async)");
@@ -148,15 +149,14 @@ public class IssuesApi {
      * @param body The issue to add. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Issue successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public void issueAdd(@javax.annotation.Nonnull Issue body) throws ApiException {
+    public void issueAdd(Issue body) throws ApiException {
         issueAddWithHttpInfo(body);
     }
 
@@ -167,15 +167,14 @@ public class IssuesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Issue successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> issueAddWithHttpInfo(@javax.annotation.Nonnull Issue body) throws ApiException {
+    public ApiResponse<Void> issueAddWithHttpInfo(Issue body) throws ApiException {
         okhttp3.Call localVarCall = issueAddValidateBeforeCall(body, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -188,15 +187,14 @@ public class IssuesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> Issue successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call issueAddAsync(@javax.annotation.Nonnull Issue body, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call issueAddAsync(Issue body, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = issueAddValidateBeforeCall(body, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -209,8 +207,7 @@ public class IssuesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Issue deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -218,7 +215,7 @@ public class IssuesApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call issueDeleteCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call issueDeleteCall(Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -266,7 +263,7 @@ public class IssuesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call issueDeleteValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call issueDeleteValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling issueDelete(Async)");
@@ -282,8 +279,7 @@ public class IssuesApi {
      * @param id The issue id. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Issue deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -291,7 +287,7 @@ public class IssuesApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public void issueDelete(@javax.annotation.Nonnull Long id) throws ApiException {
+    public void issueDelete(Long id) throws ApiException {
         issueDeleteWithHttpInfo(id);
     }
 
@@ -302,8 +298,7 @@ public class IssuesApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Issue deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -311,7 +306,7 @@ public class IssuesApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> issueDeleteWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+    public ApiResponse<Void> issueDeleteWithHttpInfo(Long id) throws ApiException {
         okhttp3.Call localVarCall = issueDeleteValidateBeforeCall(id, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -324,8 +319,7 @@ public class IssuesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> Issue deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -333,7 +327,7 @@ public class IssuesApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call issueDeleteAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call issueDeleteAsync(Long id, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = issueDeleteValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);
@@ -346,15 +340,14 @@ public class IssuesApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with issue details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call issueGetCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call issueGetCall(Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -403,7 +396,7 @@ public class IssuesApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call issueGetValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call issueGetValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling issueGet(Async)");
@@ -420,15 +413,14 @@ public class IssuesApi {
      * @return CreateIssueResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with issue details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public CreateIssueResponse issueGet(@javax.annotation.Nonnull Long id) throws ApiException {
+    public CreateIssueResponse issueGet(Long id) throws ApiException {
         ApiResponse<CreateIssueResponse> localVarResp = issueGetWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -440,15 +432,14 @@ public class IssuesApi {
      * @return ApiResponse&lt;CreateIssueResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with issue details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<CreateIssueResponse> issueGetWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+    public ApiResponse<CreateIssueResponse> issueGetWithHttpInfo(Long id) throws ApiException {
         okhttp3.Call localVarCall = issueGetValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<CreateIssueResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -462,15 +453,14 @@ public class IssuesApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success with issue details </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call issueGetAsync(@javax.annotation.Nonnull Long id, final ApiCallback<CreateIssueResponse> _callback) throws ApiException {
+    public okhttp3.Call issueGetAsync(Long id, final ApiCallback<CreateIssueResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = issueGetValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<CreateIssueResponse>(){}.getType();

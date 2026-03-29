@@ -1,6 +1,6 @@
 plugins {
     id("java")
-    id("org.openapi.generator") version "7.19.0"
+    id("org.openapi.generator") version "6.6.0"
 }
 
 group = "org.example"
@@ -41,8 +41,8 @@ tasks.test {
 openApiGenerate {
     generatorName.set("java")
     inputSpec.set("$rootDir/swagger.json")
-    outputDir.set(layout.buildDirectory.dir("generated").get().asFile.path)
+    outputDir.set("$buildDir/generated")
+    library.set("okhttp-gson")
     apiPackage.set("org.mantis.api")
     modelPackage.set("org.mantis.model")
-    configOptions.put("skipNullProperties", "false")
 }

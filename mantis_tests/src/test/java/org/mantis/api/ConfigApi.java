@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ConfigApi {
     private ApiClient localVarApiClient;
@@ -81,8 +82,7 @@ public class ConfigApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -90,7 +90,7 @@ public class ConfigApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call configGetCall(@javax.annotation.Nonnull List<String> option, @javax.annotation.Nullable Long projectId, @javax.annotation.Nullable Long userId, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call configGetCall(List<String> option, Long projectId, Long userId, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -147,7 +147,7 @@ public class ConfigApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call configGetValidateBeforeCall(@javax.annotation.Nonnull List<String> option, @javax.annotation.Nullable Long projectId, @javax.annotation.Nullable Long userId, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call configGetValidateBeforeCall(List<String> option, Long projectId, Long userId, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'option' is set
         if (option == null) {
             throw new ApiException("Missing the required parameter 'option' when calling configGet(Async)");
@@ -166,8 +166,7 @@ public class ConfigApi {
      * @return ConfigGetResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -175,7 +174,7 @@ public class ConfigApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ConfigGetResponse configGet(@javax.annotation.Nonnull List<String> option, @javax.annotation.Nullable Long projectId, @javax.annotation.Nullable Long userId) throws ApiException {
+    public ConfigGetResponse configGet(List<String> option, Long projectId, Long userId) throws ApiException {
         ApiResponse<ConfigGetResponse> localVarResp = configGetWithHttpInfo(option, projectId, userId);
         return localVarResp.getData();
     }
@@ -189,8 +188,7 @@ public class ConfigApi {
      * @return ApiResponse&lt;ConfigGetResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -198,7 +196,7 @@ public class ConfigApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConfigGetResponse> configGetWithHttpInfo(@javax.annotation.Nonnull List<String> option, @javax.annotation.Nullable Long projectId, @javax.annotation.Nullable Long userId) throws ApiException {
+    public ApiResponse<ConfigGetResponse> configGetWithHttpInfo(List<String> option, Long projectId, Long userId) throws ApiException {
         okhttp3.Call localVarCall = configGetValidateBeforeCall(option, projectId, userId, null);
         Type localVarReturnType = new TypeToken<ConfigGetResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -214,8 +212,7 @@ public class ConfigApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -223,7 +220,7 @@ public class ConfigApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call configGetAsync(@javax.annotation.Nonnull List<String> option, @javax.annotation.Nullable Long projectId, @javax.annotation.Nullable Long userId, final ApiCallback<ConfigGetResponse> _callback) throws ApiException {
+    public okhttp3.Call configGetAsync(List<String> option, Long projectId, Long userId, final ApiCallback<ConfigGetResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = configGetValidateBeforeCall(option, projectId, userId, _callback);
         Type localVarReturnType = new TypeToken<ConfigGetResponse>(){}.getType();

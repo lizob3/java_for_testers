@@ -14,6 +14,7 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.mantis.model.LocalizedString;
 
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -51,41 +53,42 @@ import org.mantis.JSON;
 /**
  * LangGetResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class LangGetResponse {
   public static final String SERIALIZED_NAME_LANGUAGE = "language";
   @SerializedName(SERIALIZED_NAME_LANGUAGE)
-  @javax.annotation.Nullable
   private String language;
 
   public static final String SERIALIZED_NAME_STRINGS = "strings";
   @SerializedName(SERIALIZED_NAME_STRINGS)
-  @javax.annotation.Nullable
-  private List<LocalizedString> strings = new ArrayList<>();
+  private List<LocalizedString> strings;
 
   public LangGetResponse() {
   }
 
-  public LangGetResponse language(@javax.annotation.Nullable String language) {
+  public LangGetResponse language(String language) {
+    
     this.language = language;
     return this;
   }
 
-  /**
+   /**
    * Get language
    * @return language
-   */
+  **/
   @javax.annotation.Nullable
   public String getLanguage() {
     return language;
   }
 
-  public void setLanguage(@javax.annotation.Nullable String language) {
+
+  public void setLanguage(String language) {
     this.language = language;
   }
 
 
-  public LangGetResponse strings(@javax.annotation.Nullable List<LocalizedString> strings) {
+  public LangGetResponse strings(List<LocalizedString> strings) {
+    
     this.strings = strings;
     return this;
   }
@@ -98,16 +101,17 @@ public class LangGetResponse {
     return this;
   }
 
-  /**
+   /**
    * Get strings
    * @return strings
-   */
+  **/
   @javax.annotation.Nullable
   public List<LocalizedString> getStrings() {
     return strings;
   }
 
-  public void setStrings(@javax.annotation.Nullable List<LocalizedString> strings) {
+
+  public void setStrings(List<LocalizedString> strings) {
     this.strings = strings;
   }
 
@@ -158,47 +162,48 @@ public class LangGetResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("language", "strings"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("language");
+    openapiFields.add("strings");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to LangGetResponse
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!LangGetResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in LangGetResponse is not found in the empty JSON string", LangGetResponse.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to LangGetResponse
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!LangGetResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in LangGetResponse is not found in the empty JSON string", LangGetResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!LangGetResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `LangGetResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LangGetResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("language") != null && !jsonObj.get("language").isJsonNull()) && !jsonObj.get("language").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `language` to be a primitive type in the JSON string but got `%s`", jsonObj.get("language").toString()));
       }
       if (jsonObj.get("strings") != null && !jsonObj.get("strings").isJsonNull()) {
         JsonArray jsonArraystrings = jsonObj.getAsJsonArray("strings");
         if (jsonArraystrings != null) {
           // ensure the json data is an array
           if (!jsonObj.get("strings").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `strings` to be an array in the JSON string but got `%s`", jsonObj.get("strings").toString()));
+            throw new IllegalArgumentException(String.format("Expected the field `strings` to be an array in the JSON string but got `%s`", jsonObj.get("strings").toString()));
           }
 
           // validate the optional field `strings` (array)
           for (int i = 0; i < jsonArraystrings.size(); i++) {
-            LocalizedString.validateJsonElement(jsonArraystrings.get(i));
+            LocalizedString.validateJsonObject(jsonArraystrings.get(i).getAsJsonObject());
           };
         }
       }
@@ -224,31 +229,31 @@ public class LangGetResponse {
 
            @Override
            public LangGetResponse read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of LangGetResponse given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of LangGetResponse
-   * @throws IOException if the JSON string is invalid with respect to LangGetResponse
-   */
+ /**
+  * Create an instance of LangGetResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of LangGetResponse
+  * @throws IOException if the JSON string is invalid with respect to LangGetResponse
+  */
   public static LangGetResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, LangGetResponse.class);
   }
 
-  /**
-   * Convert an instance of LangGetResponse to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of LangGetResponse to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

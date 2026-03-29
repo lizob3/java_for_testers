@@ -14,13 +14,13 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.mantis.model.AccessLevel;
 
 import com.google.gson.Gson;
@@ -38,10 +38,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -49,175 +51,182 @@ import org.mantis.JSON;
 /**
  * User
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class User {
   public static final String SERIALIZED_NAME_USERNAME = "username";
   @SerializedName(SERIALIZED_NAME_USERNAME)
-  @javax.annotation.Nullable
   private String username;
 
   public static final String SERIALIZED_NAME_PASSWORD = "password";
   @SerializedName(SERIALIZED_NAME_PASSWORD)
-  @javax.annotation.Nullable
   private String password;
 
   public static final String SERIALIZED_NAME_REAL_NAME = "real_name";
   @SerializedName(SERIALIZED_NAME_REAL_NAME)
-  @javax.annotation.Nullable
   private String realName;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
-  @javax.annotation.Nullable
   private String email;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
-  @javax.annotation.Nullable
   private Boolean enabled;
 
   public static final String SERIALIZED_NAME_PROTECTED = "protected";
   @SerializedName(SERIALIZED_NAME_PROTECTED)
-  @javax.annotation.Nullable
   private Boolean _protected;
 
   public static final String SERIALIZED_NAME_ACCESS_LEVEL = "access_level";
   @SerializedName(SERIALIZED_NAME_ACCESS_LEVEL)
-  @javax.annotation.Nullable
   private AccessLevel accessLevel;
 
   public User() {
   }
 
-  public User username(@javax.annotation.Nullable String username) {
+  public User username(String username) {
+    
     this.username = username;
     return this;
   }
 
-  /**
+   /**
    * Get username
    * @return username
-   */
+  **/
   @javax.annotation.Nullable
   public String getUsername() {
     return username;
   }
 
-  public void setUsername(@javax.annotation.Nullable String username) {
+
+  public void setUsername(String username) {
     this.username = username;
   }
 
 
-  public User password(@javax.annotation.Nullable String password) {
+  public User password(String password) {
+    
     this.password = password;
     return this;
   }
 
-  /**
+   /**
    * Get password
    * @return password
-   */
+  **/
   @javax.annotation.Nullable
   public String getPassword() {
     return password;
   }
 
-  public void setPassword(@javax.annotation.Nullable String password) {
+
+  public void setPassword(String password) {
     this.password = password;
   }
 
 
-  public User realName(@javax.annotation.Nullable String realName) {
+  public User realName(String realName) {
+    
     this.realName = realName;
     return this;
   }
 
-  /**
+   /**
    * Get realName
    * @return realName
-   */
+  **/
   @javax.annotation.Nullable
   public String getRealName() {
     return realName;
   }
 
-  public void setRealName(@javax.annotation.Nullable String realName) {
+
+  public void setRealName(String realName) {
     this.realName = realName;
   }
 
 
-  public User email(@javax.annotation.Nullable String email) {
+  public User email(String email) {
+    
     this.email = email;
     return this;
   }
 
-  /**
+   /**
    * Get email
    * @return email
-   */
+  **/
   @javax.annotation.Nullable
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(@javax.annotation.Nullable String email) {
+
+  public void setEmail(String email) {
     this.email = email;
   }
 
 
-  public User enabled(@javax.annotation.Nullable Boolean enabled) {
+  public User enabled(Boolean enabled) {
+    
     this.enabled = enabled;
     return this;
   }
 
-  /**
+   /**
    * Get enabled
    * @return enabled
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getEnabled() {
     return enabled;
   }
 
-  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+
+  public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
 
-  public User _protected(@javax.annotation.Nullable Boolean _protected) {
+  public User _protected(Boolean _protected) {
+    
     this._protected = _protected;
     return this;
   }
 
-  /**
+   /**
    * Get _protected
    * @return _protected
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getProtected() {
     return _protected;
   }
 
-  public void setProtected(@javax.annotation.Nullable Boolean _protected) {
+
+  public void setProtected(Boolean _protected) {
     this._protected = _protected;
   }
 
 
-  public User accessLevel(@javax.annotation.Nullable AccessLevel accessLevel) {
+  public User accessLevel(AccessLevel accessLevel) {
+    
     this.accessLevel = accessLevel;
     return this;
   }
 
-  /**
+   /**
    * Get accessLevel
    * @return accessLevel
-   */
+  **/
   @javax.annotation.Nullable
   public AccessLevel getAccessLevel() {
     return accessLevel;
   }
 
-  public void setAccessLevel(@javax.annotation.Nullable AccessLevel accessLevel) {
+
+  public void setAccessLevel(AccessLevel accessLevel) {
     this.accessLevel = accessLevel;
   }
 
@@ -278,48 +287,54 @@ public class User {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("username", "password", "real_name", "email", "enabled", "protected", "access_level"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("username");
+    openapiFields.add("password");
+    openapiFields.add("real_name");
+    openapiFields.add("email");
+    openapiFields.add("enabled");
+    openapiFields.add("protected");
+    openapiFields.add("access_level");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to User
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!User.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in User is not found in the empty JSON string", User.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to User
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!User.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in User is not found in the empty JSON string", User.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!User.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `User` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("username") != null && !jsonObj.get("username").isJsonNull()) && !jsonObj.get("username").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `username` to be a primitive type in the JSON string but got `%s`", jsonObj.get("username").toString()));
       }
       if ((jsonObj.get("password") != null && !jsonObj.get("password").isJsonNull()) && !jsonObj.get("password").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `password` to be a primitive type in the JSON string but got `%s`", jsonObj.get("password").toString()));
       }
       if ((jsonObj.get("real_name") != null && !jsonObj.get("real_name").isJsonNull()) && !jsonObj.get("real_name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `real_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("real_name").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `real_name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("real_name").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       // validate the optional field `access_level`
       if (jsonObj.get("access_level") != null && !jsonObj.get("access_level").isJsonNull()) {
-        AccessLevel.validateJsonElement(jsonObj.get("access_level"));
+        AccessLevel.validateJsonObject(jsonObj.getAsJsonObject("access_level"));
       }
   }
 
@@ -343,31 +358,31 @@ public class User {
 
            @Override
            public User read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of User given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of User
-   * @throws IOException if the JSON string is invalid with respect to User
-   */
+ /**
+  * Create an instance of User given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of User
+  * @throws IOException if the JSON string is invalid with respect to User
+  */
   public static User fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, User.class);
   }
 
-  /**
-   * Convert an instance of User to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of User to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -14,6 +14,7 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.mantis.model.AccessLevel;
 import org.mantis.model.Category;
@@ -45,10 +45,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -56,195 +58,200 @@ import org.mantis.JSON;
 /**
  * Project
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class Project {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nullable
   private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
   @SerializedName(SERIALIZED_NAME_STATUS)
-  @javax.annotation.Nullable
   private ProjectStatusRef status;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nullable
   private String description;
 
   public static final String SERIALIZED_NAME_ENABLED = "enabled";
   @SerializedName(SERIALIZED_NAME_ENABLED)
-  @javax.annotation.Nullable
   private Boolean enabled;
 
   public static final String SERIALIZED_NAME_VIEW_STATE = "view_state";
   @SerializedName(SERIALIZED_NAME_VIEW_STATE)
-  @javax.annotation.Nullable
   private ViewState viewState;
 
   public static final String SERIALIZED_NAME_ACCESS_LEVEL = "access_level";
   @SerializedName(SERIALIZED_NAME_ACCESS_LEVEL)
-  @javax.annotation.Nullable
   private AccessLevel accessLevel;
 
   public static final String SERIALIZED_NAME_VERSIONS = "versions";
   @SerializedName(SERIALIZED_NAME_VERSIONS)
-  @javax.annotation.Nullable
-  private List<Version> versions = new ArrayList<>();
+  private List<Version> versions;
 
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  @javax.annotation.Nullable
-  private List<Category> categories = new ArrayList<>();
+  private List<Category> categories;
 
   public static final String SERIALIZED_NAME_CUSTOM_FIELDS = "custom_fields";
   @SerializedName(SERIALIZED_NAME_CUSTOM_FIELDS)
-  @javax.annotation.Nullable
-  private List<CustomField> customFields = new ArrayList<>();
+  private List<CustomField> customFields;
 
   public Project() {
   }
 
-  public Project id(@javax.annotation.Nullable Long id) {
+  public Project id(Long id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   public Long getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nullable Long id) {
+
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public Project name(@javax.annotation.Nonnull String name) {
+  public Project name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public Project status(@javax.annotation.Nullable ProjectStatusRef status) {
+  public Project status(ProjectStatusRef status) {
+    
     this.status = status;
     return this;
   }
 
-  /**
+   /**
    * Get status
    * @return status
-   */
+  **/
   @javax.annotation.Nullable
   public ProjectStatusRef getStatus() {
     return status;
   }
 
-  public void setStatus(@javax.annotation.Nullable ProjectStatusRef status) {
+
+  public void setStatus(ProjectStatusRef status) {
     this.status = status;
   }
 
 
-  public Project description(@javax.annotation.Nullable String description) {
+  public Project description(String description) {
+    
     this.description = description;
     return this;
   }
 
-  /**
+   /**
    * Get description
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nullable String description) {
+
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public Project enabled(@javax.annotation.Nullable Boolean enabled) {
+  public Project enabled(Boolean enabled) {
+    
     this.enabled = enabled;
     return this;
   }
 
-  /**
+   /**
    * Get enabled
    * @return enabled
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getEnabled() {
     return enabled;
   }
 
-  public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+
+  public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
   }
 
 
-  public Project viewState(@javax.annotation.Nullable ViewState viewState) {
+  public Project viewState(ViewState viewState) {
+    
     this.viewState = viewState;
     return this;
   }
 
-  /**
+   /**
    * Get viewState
    * @return viewState
-   */
+  **/
   @javax.annotation.Nullable
   public ViewState getViewState() {
     return viewState;
   }
 
-  public void setViewState(@javax.annotation.Nullable ViewState viewState) {
+
+  public void setViewState(ViewState viewState) {
     this.viewState = viewState;
   }
 
 
-  public Project accessLevel(@javax.annotation.Nullable AccessLevel accessLevel) {
+  public Project accessLevel(AccessLevel accessLevel) {
+    
     this.accessLevel = accessLevel;
     return this;
   }
 
-  /**
+   /**
    * Get accessLevel
    * @return accessLevel
-   */
+  **/
   @javax.annotation.Nullable
   public AccessLevel getAccessLevel() {
     return accessLevel;
   }
 
-  public void setAccessLevel(@javax.annotation.Nullable AccessLevel accessLevel) {
+
+  public void setAccessLevel(AccessLevel accessLevel) {
     this.accessLevel = accessLevel;
   }
 
 
-  public Project versions(@javax.annotation.Nullable List<Version> versions) {
+  public Project versions(List<Version> versions) {
+    
     this.versions = versions;
     return this;
   }
@@ -257,21 +264,23 @@ public class Project {
     return this;
   }
 
-  /**
+   /**
    * Get versions
    * @return versions
-   */
+  **/
   @javax.annotation.Nullable
   public List<Version> getVersions() {
     return versions;
   }
 
-  public void setVersions(@javax.annotation.Nullable List<Version> versions) {
+
+  public void setVersions(List<Version> versions) {
     this.versions = versions;
   }
 
 
-  public Project categories(@javax.annotation.Nullable List<Category> categories) {
+  public Project categories(List<Category> categories) {
+    
     this.categories = categories;
     return this;
   }
@@ -284,21 +293,23 @@ public class Project {
     return this;
   }
 
-  /**
+   /**
    * Get categories
    * @return categories
-   */
+  **/
   @javax.annotation.Nullable
   public List<Category> getCategories() {
     return categories;
   }
 
-  public void setCategories(@javax.annotation.Nullable List<Category> categories) {
+
+  public void setCategories(List<Category> categories) {
     this.categories = categories;
   }
 
 
-  public Project customFields(@javax.annotation.Nullable List<CustomField> customFields) {
+  public Project customFields(List<CustomField> customFields) {
+    
     this.customFields = customFields;
     return this;
   }
@@ -311,16 +322,17 @@ public class Project {
     return this;
   }
 
-  /**
+   /**
    * Get customFields
    * @return customFields
-   */
+  **/
   @javax.annotation.Nullable
   public List<CustomField> getCustomFields() {
     return customFields;
   }
 
-  public void setCustomFields(@javax.annotation.Nullable List<CustomField> customFields) {
+
+  public void setCustomFields(List<CustomField> customFields) {
     this.customFields = customFields;
   }
 
@@ -387,69 +399,79 @@ public class Project {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "status", "description", "enabled", "view_state", "access_level", "versions", "categories", "custom_fields"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("name");
+    openapiFields.add("status");
+    openapiFields.add("description");
+    openapiFields.add("enabled");
+    openapiFields.add("view_state");
+    openapiFields.add("access_level");
+    openapiFields.add("versions");
+    openapiFields.add("categories");
+    openapiFields.add("custom_fields");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Project
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Project.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Project is not found in the empty JSON string", Project.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to Project
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!Project.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Project is not found in the empty JSON string", Project.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!Project.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Project` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Project` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Project.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       // validate the optional field `status`
       if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-        ProjectStatusRef.validateJsonElement(jsonObj.get("status"));
+        ProjectStatusRef.validateJsonObject(jsonObj.getAsJsonObject("status"));
       }
       if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       // validate the optional field `view_state`
       if (jsonObj.get("view_state") != null && !jsonObj.get("view_state").isJsonNull()) {
-        ViewState.validateJsonElement(jsonObj.get("view_state"));
+        ViewState.validateJsonObject(jsonObj.getAsJsonObject("view_state"));
       }
       // validate the optional field `access_level`
       if (jsonObj.get("access_level") != null && !jsonObj.get("access_level").isJsonNull()) {
-        AccessLevel.validateJsonElement(jsonObj.get("access_level"));
+        AccessLevel.validateJsonObject(jsonObj.getAsJsonObject("access_level"));
       }
       if (jsonObj.get("versions") != null && !jsonObj.get("versions").isJsonNull()) {
         JsonArray jsonArrayversions = jsonObj.getAsJsonArray("versions");
         if (jsonArrayversions != null) {
           // ensure the json data is an array
           if (!jsonObj.get("versions").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `versions` to be an array in the JSON string but got `%s`", jsonObj.get("versions").toString()));
+            throw new IllegalArgumentException(String.format("Expected the field `versions` to be an array in the JSON string but got `%s`", jsonObj.get("versions").toString()));
           }
 
           // validate the optional field `versions` (array)
           for (int i = 0; i < jsonArrayversions.size(); i++) {
-            Version.validateJsonElement(jsonArrayversions.get(i));
+            Version.validateJsonObject(jsonArrayversions.get(i).getAsJsonObject());
           };
         }
       }
@@ -458,12 +480,12 @@ public class Project {
         if (jsonArraycategories != null) {
           // ensure the json data is an array
           if (!jsonObj.get("categories").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `categories` to be an array in the JSON string but got `%s`", jsonObj.get("categories").toString()));
+            throw new IllegalArgumentException(String.format("Expected the field `categories` to be an array in the JSON string but got `%s`", jsonObj.get("categories").toString()));
           }
 
           // validate the optional field `categories` (array)
           for (int i = 0; i < jsonArraycategories.size(); i++) {
-            Category.validateJsonElement(jsonArraycategories.get(i));
+            Category.validateJsonObject(jsonArraycategories.get(i).getAsJsonObject());
           };
         }
       }
@@ -472,12 +494,12 @@ public class Project {
         if (jsonArraycustomFields != null) {
           // ensure the json data is an array
           if (!jsonObj.get("custom_fields").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `custom_fields` to be an array in the JSON string but got `%s`", jsonObj.get("custom_fields").toString()));
+            throw new IllegalArgumentException(String.format("Expected the field `custom_fields` to be an array in the JSON string but got `%s`", jsonObj.get("custom_fields").toString()));
           }
 
           // validate the optional field `custom_fields` (array)
           for (int i = 0; i < jsonArraycustomFields.size(); i++) {
-            CustomField.validateJsonElement(jsonArraycustomFields.get(i));
+            CustomField.validateJsonObject(jsonArraycustomFields.get(i).getAsJsonObject());
           };
         }
       }
@@ -503,31 +525,31 @@ public class Project {
 
            @Override
            public Project read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of Project given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Project
-   * @throws IOException if the JSON string is invalid with respect to Project
-   */
+ /**
+  * Create an instance of Project given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Project
+  * @throws IOException if the JSON string is invalid with respect to Project
+  */
   public static Project fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Project.class);
   }
 
-  /**
-   * Convert an instance of Project to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of Project to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

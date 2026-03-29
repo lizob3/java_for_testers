@@ -11,9 +11,13 @@ import org.mantis.model.Issue;
 
 public class RestApiHelper extends HelperBase {
 
+    private final ApiClient defaultClient;
+
     public RestApiHelper(ApplicationManager manager) {
+
         super(manager);
-        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath(String.format("%s/mantisbt-2.28.1/api/rest", manager.property("james.apiBaseUrl")));
         ApiKeyAuth Authorization = (ApiKeyAuth) defaultClient.getAuthentication("Authorization");
         Authorization.setApiKey(manager.property("apiKey"));
     }
@@ -29,10 +33,7 @@ public class RestApiHelper extends HelperBase {
         categoryId.setId(issueData.category());
         issue.setCategory(categoryId);
 
-        IssuesApi apiInstance = new IssuesApi();
-
-        ApiClient client = apiInstance.getApiClient();
-        client.setDebugging(true);
+        IssuesApi apiInstance = new IssuesApi(defaultClient);
         try {
             apiInstance.issueAdd(issue);
         } catch (ApiException e) {

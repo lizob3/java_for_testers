@@ -14,13 +14,13 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 import org.mantis.model.AccessLevel;
 
 import com.google.gson.Gson;
@@ -38,10 +38,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -49,439 +51,457 @@ import org.mantis.JSON;
 /**
  * CustomField
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class CustomField {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nonnull
   private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nonnull
   private String name;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
-  @javax.annotation.Nonnull
   private String type;
 
   public static final String SERIALIZED_NAME_DEFAULT_VALUE = "default_value";
   @SerializedName(SERIALIZED_NAME_DEFAULT_VALUE)
-  @javax.annotation.Nullable
   private String defaultValue;
 
   public static final String SERIALIZED_NAME_POSSIBLE_VALUES = "possible_values";
   @SerializedName(SERIALIZED_NAME_POSSIBLE_VALUES)
-  @javax.annotation.Nullable
   private String possibleValues;
 
   public static final String SERIALIZED_NAME_VALID_REGEXP = "valid_regexp";
   @SerializedName(SERIALIZED_NAME_VALID_REGEXP)
-  @javax.annotation.Nullable
   private String validRegexp;
 
   public static final String SERIALIZED_NAME_LENGTH_MIN = "length_min";
   @SerializedName(SERIALIZED_NAME_LENGTH_MIN)
-  @javax.annotation.Nullable
   private Integer lengthMin;
 
   public static final String SERIALIZED_NAME_LENGTH_MAX = "length_max";
   @SerializedName(SERIALIZED_NAME_LENGTH_MAX)
-  @javax.annotation.Nullable
   private Integer lengthMax;
 
   public static final String SERIALIZED_NAME_ACCESS_LEVEL_R = "access_level_r";
   @SerializedName(SERIALIZED_NAME_ACCESS_LEVEL_R)
-  @javax.annotation.Nullable
   private AccessLevel accessLevelR;
 
   public static final String SERIALIZED_NAME_ACCESS_LEVEL_RW = "access_level_rw";
   @SerializedName(SERIALIZED_NAME_ACCESS_LEVEL_RW)
-  @javax.annotation.Nullable
   private AccessLevel accessLevelRw;
 
   public static final String SERIALIZED_NAME_DISPLAY_REPORT = "display_report";
   @SerializedName(SERIALIZED_NAME_DISPLAY_REPORT)
-  @javax.annotation.Nullable
   private Boolean displayReport;
 
   public static final String SERIALIZED_NAME_DISPLAY_UPDATE = "display_update";
   @SerializedName(SERIALIZED_NAME_DISPLAY_UPDATE)
-  @javax.annotation.Nullable
   private Boolean displayUpdate;
 
   public static final String SERIALIZED_NAME_DISPLAY_RESOLVED = "display_resolved";
   @SerializedName(SERIALIZED_NAME_DISPLAY_RESOLVED)
-  @javax.annotation.Nullable
   private Boolean displayResolved;
 
   public static final String SERIALIZED_NAME_DISPLAY_CLOSED = "display_closed";
   @SerializedName(SERIALIZED_NAME_DISPLAY_CLOSED)
-  @javax.annotation.Nullable
   private Boolean displayClosed;
 
   public static final String SERIALIZED_NAME_REQUIRE_REPORT = "require_report";
   @SerializedName(SERIALIZED_NAME_REQUIRE_REPORT)
-  @javax.annotation.Nullable
   private Boolean requireReport;
 
   public static final String SERIALIZED_NAME_REQUIRE_UPDATE = "require_update";
   @SerializedName(SERIALIZED_NAME_REQUIRE_UPDATE)
-  @javax.annotation.Nullable
   private Boolean requireUpdate;
 
   public static final String SERIALIZED_NAME_REQUIRE_RESOLVED = "require_resolved";
   @SerializedName(SERIALIZED_NAME_REQUIRE_RESOLVED)
-  @javax.annotation.Nullable
   private Boolean requireResolved;
 
   public static final String SERIALIZED_NAME_REQUIRE_CLOSED = "require_closed";
   @SerializedName(SERIALIZED_NAME_REQUIRE_CLOSED)
-  @javax.annotation.Nullable
   private Boolean requireClosed;
 
   public CustomField() {
   }
 
-  public CustomField id(@javax.annotation.Nonnull Long id) {
+  public CustomField id(Long id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nonnull
   public Long getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nonnull Long id) {
+
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public CustomField name(@javax.annotation.Nonnull String name) {
+  public CustomField name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nonnull
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nonnull String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public CustomField type(@javax.annotation.Nonnull String type) {
+  public CustomField type(String type) {
+    
     this.type = type;
     return this;
   }
 
-  /**
+   /**
    * Get type
    * @return type
-   */
+  **/
   @javax.annotation.Nonnull
   public String getType() {
     return type;
   }
 
-  public void setType(@javax.annotation.Nonnull String type) {
+
+  public void setType(String type) {
     this.type = type;
   }
 
 
-  public CustomField defaultValue(@javax.annotation.Nullable String defaultValue) {
+  public CustomField defaultValue(String defaultValue) {
+    
     this.defaultValue = defaultValue;
     return this;
   }
 
-  /**
+   /**
    * Get defaultValue
    * @return defaultValue
-   */
+  **/
   @javax.annotation.Nullable
   public String getDefaultValue() {
     return defaultValue;
   }
 
-  public void setDefaultValue(@javax.annotation.Nullable String defaultValue) {
+
+  public void setDefaultValue(String defaultValue) {
     this.defaultValue = defaultValue;
   }
 
 
-  public CustomField possibleValues(@javax.annotation.Nullable String possibleValues) {
+  public CustomField possibleValues(String possibleValues) {
+    
     this.possibleValues = possibleValues;
     return this;
   }
 
-  /**
+   /**
    * Get possibleValues
    * @return possibleValues
-   */
+  **/
   @javax.annotation.Nullable
   public String getPossibleValues() {
     return possibleValues;
   }
 
-  public void setPossibleValues(@javax.annotation.Nullable String possibleValues) {
+
+  public void setPossibleValues(String possibleValues) {
     this.possibleValues = possibleValues;
   }
 
 
-  public CustomField validRegexp(@javax.annotation.Nullable String validRegexp) {
+  public CustomField validRegexp(String validRegexp) {
+    
     this.validRegexp = validRegexp;
     return this;
   }
 
-  /**
+   /**
    * Get validRegexp
    * @return validRegexp
-   */
+  **/
   @javax.annotation.Nullable
   public String getValidRegexp() {
     return validRegexp;
   }
 
-  public void setValidRegexp(@javax.annotation.Nullable String validRegexp) {
+
+  public void setValidRegexp(String validRegexp) {
     this.validRegexp = validRegexp;
   }
 
 
-  public CustomField lengthMin(@javax.annotation.Nullable Integer lengthMin) {
+  public CustomField lengthMin(Integer lengthMin) {
+    
     this.lengthMin = lengthMin;
     return this;
   }
 
-  /**
+   /**
    * Get lengthMin
    * @return lengthMin
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getLengthMin() {
     return lengthMin;
   }
 
-  public void setLengthMin(@javax.annotation.Nullable Integer lengthMin) {
+
+  public void setLengthMin(Integer lengthMin) {
     this.lengthMin = lengthMin;
   }
 
 
-  public CustomField lengthMax(@javax.annotation.Nullable Integer lengthMax) {
+  public CustomField lengthMax(Integer lengthMax) {
+    
     this.lengthMax = lengthMax;
     return this;
   }
 
-  /**
+   /**
    * Get lengthMax
    * @return lengthMax
-   */
+  **/
   @javax.annotation.Nullable
   public Integer getLengthMax() {
     return lengthMax;
   }
 
-  public void setLengthMax(@javax.annotation.Nullable Integer lengthMax) {
+
+  public void setLengthMax(Integer lengthMax) {
     this.lengthMax = lengthMax;
   }
 
 
-  public CustomField accessLevelR(@javax.annotation.Nullable AccessLevel accessLevelR) {
+  public CustomField accessLevelR(AccessLevel accessLevelR) {
+    
     this.accessLevelR = accessLevelR;
     return this;
   }
 
-  /**
+   /**
    * Get accessLevelR
    * @return accessLevelR
-   */
+  **/
   @javax.annotation.Nullable
   public AccessLevel getAccessLevelR() {
     return accessLevelR;
   }
 
-  public void setAccessLevelR(@javax.annotation.Nullable AccessLevel accessLevelR) {
+
+  public void setAccessLevelR(AccessLevel accessLevelR) {
     this.accessLevelR = accessLevelR;
   }
 
 
-  public CustomField accessLevelRw(@javax.annotation.Nullable AccessLevel accessLevelRw) {
+  public CustomField accessLevelRw(AccessLevel accessLevelRw) {
+    
     this.accessLevelRw = accessLevelRw;
     return this;
   }
 
-  /**
+   /**
    * Get accessLevelRw
    * @return accessLevelRw
-   */
+  **/
   @javax.annotation.Nullable
   public AccessLevel getAccessLevelRw() {
     return accessLevelRw;
   }
 
-  public void setAccessLevelRw(@javax.annotation.Nullable AccessLevel accessLevelRw) {
+
+  public void setAccessLevelRw(AccessLevel accessLevelRw) {
     this.accessLevelRw = accessLevelRw;
   }
 
 
-  public CustomField displayReport(@javax.annotation.Nullable Boolean displayReport) {
+  public CustomField displayReport(Boolean displayReport) {
+    
     this.displayReport = displayReport;
     return this;
   }
 
-  /**
+   /**
    * Get displayReport
    * @return displayReport
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getDisplayReport() {
     return displayReport;
   }
 
-  public void setDisplayReport(@javax.annotation.Nullable Boolean displayReport) {
+
+  public void setDisplayReport(Boolean displayReport) {
     this.displayReport = displayReport;
   }
 
 
-  public CustomField displayUpdate(@javax.annotation.Nullable Boolean displayUpdate) {
+  public CustomField displayUpdate(Boolean displayUpdate) {
+    
     this.displayUpdate = displayUpdate;
     return this;
   }
 
-  /**
+   /**
    * Get displayUpdate
    * @return displayUpdate
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getDisplayUpdate() {
     return displayUpdate;
   }
 
-  public void setDisplayUpdate(@javax.annotation.Nullable Boolean displayUpdate) {
+
+  public void setDisplayUpdate(Boolean displayUpdate) {
     this.displayUpdate = displayUpdate;
   }
 
 
-  public CustomField displayResolved(@javax.annotation.Nullable Boolean displayResolved) {
+  public CustomField displayResolved(Boolean displayResolved) {
+    
     this.displayResolved = displayResolved;
     return this;
   }
 
-  /**
+   /**
    * Get displayResolved
    * @return displayResolved
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getDisplayResolved() {
     return displayResolved;
   }
 
-  public void setDisplayResolved(@javax.annotation.Nullable Boolean displayResolved) {
+
+  public void setDisplayResolved(Boolean displayResolved) {
     this.displayResolved = displayResolved;
   }
 
 
-  public CustomField displayClosed(@javax.annotation.Nullable Boolean displayClosed) {
+  public CustomField displayClosed(Boolean displayClosed) {
+    
     this.displayClosed = displayClosed;
     return this;
   }
 
-  /**
+   /**
    * Get displayClosed
    * @return displayClosed
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getDisplayClosed() {
     return displayClosed;
   }
 
-  public void setDisplayClosed(@javax.annotation.Nullable Boolean displayClosed) {
+
+  public void setDisplayClosed(Boolean displayClosed) {
     this.displayClosed = displayClosed;
   }
 
 
-  public CustomField requireReport(@javax.annotation.Nullable Boolean requireReport) {
+  public CustomField requireReport(Boolean requireReport) {
+    
     this.requireReport = requireReport;
     return this;
   }
 
-  /**
+   /**
    * Get requireReport
    * @return requireReport
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getRequireReport() {
     return requireReport;
   }
 
-  public void setRequireReport(@javax.annotation.Nullable Boolean requireReport) {
+
+  public void setRequireReport(Boolean requireReport) {
     this.requireReport = requireReport;
   }
 
 
-  public CustomField requireUpdate(@javax.annotation.Nullable Boolean requireUpdate) {
+  public CustomField requireUpdate(Boolean requireUpdate) {
+    
     this.requireUpdate = requireUpdate;
     return this;
   }
 
-  /**
+   /**
    * Get requireUpdate
    * @return requireUpdate
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getRequireUpdate() {
     return requireUpdate;
   }
 
-  public void setRequireUpdate(@javax.annotation.Nullable Boolean requireUpdate) {
+
+  public void setRequireUpdate(Boolean requireUpdate) {
     this.requireUpdate = requireUpdate;
   }
 
 
-  public CustomField requireResolved(@javax.annotation.Nullable Boolean requireResolved) {
+  public CustomField requireResolved(Boolean requireResolved) {
+    
     this.requireResolved = requireResolved;
     return this;
   }
 
-  /**
+   /**
    * Get requireResolved
    * @return requireResolved
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getRequireResolved() {
     return requireResolved;
   }
 
-  public void setRequireResolved(@javax.annotation.Nullable Boolean requireResolved) {
+
+  public void setRequireResolved(Boolean requireResolved) {
     this.requireResolved = requireResolved;
   }
 
 
-  public CustomField requireClosed(@javax.annotation.Nullable Boolean requireClosed) {
+  public CustomField requireClosed(Boolean requireClosed) {
+    
     this.requireClosed = requireClosed;
     return this;
   }
 
-  /**
+   /**
    * Get requireClosed
    * @return requireClosed
-   */
+  **/
   @javax.annotation.Nullable
   public Boolean getRequireClosed() {
     return requireClosed;
   }
 
-  public void setRequireClosed(@javax.annotation.Nullable Boolean requireClosed) {
+
+  public void setRequireClosed(Boolean requireClosed) {
     this.requireClosed = requireClosed;
   }
 
@@ -564,62 +584,82 @@ public class CustomField {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "type", "default_value", "possible_values", "valid_regexp", "length_min", "length_max", "access_level_r", "access_level_rw", "display_report", "display_update", "display_resolved", "display_closed", "require_report", "require_update", "require_resolved", "require_closed"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("name");
+    openapiFields.add("type");
+    openapiFields.add("default_value");
+    openapiFields.add("possible_values");
+    openapiFields.add("valid_regexp");
+    openapiFields.add("length_min");
+    openapiFields.add("length_max");
+    openapiFields.add("access_level_r");
+    openapiFields.add("access_level_rw");
+    openapiFields.add("display_report");
+    openapiFields.add("display_update");
+    openapiFields.add("display_resolved");
+    openapiFields.add("display_closed");
+    openapiFields.add("require_report");
+    openapiFields.add("require_update");
+    openapiFields.add("require_resolved");
+    openapiFields.add("require_closed");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "type"));
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("id");
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("type");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to CustomField
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!CustomField.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in CustomField is not found in the empty JSON string", CustomField.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to CustomField
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!CustomField.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CustomField is not found in the empty JSON string", CustomField.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!CustomField.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `CustomField` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CustomField` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : CustomField.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (!jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if (!jsonObj.get("type").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
       }
       if ((jsonObj.get("default_value") != null && !jsonObj.get("default_value").isJsonNull()) && !jsonObj.get("default_value").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `default_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_value").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `default_value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("default_value").toString()));
       }
       if ((jsonObj.get("possible_values") != null && !jsonObj.get("possible_values").isJsonNull()) && !jsonObj.get("possible_values").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `possible_values` to be a primitive type in the JSON string but got `%s`", jsonObj.get("possible_values").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `possible_values` to be a primitive type in the JSON string but got `%s`", jsonObj.get("possible_values").toString()));
       }
       if ((jsonObj.get("valid_regexp") != null && !jsonObj.get("valid_regexp").isJsonNull()) && !jsonObj.get("valid_regexp").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `valid_regexp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("valid_regexp").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `valid_regexp` to be a primitive type in the JSON string but got `%s`", jsonObj.get("valid_regexp").toString()));
       }
       // validate the optional field `access_level_r`
       if (jsonObj.get("access_level_r") != null && !jsonObj.get("access_level_r").isJsonNull()) {
-        AccessLevel.validateJsonElement(jsonObj.get("access_level_r"));
+        AccessLevel.validateJsonObject(jsonObj.getAsJsonObject("access_level_r"));
       }
       // validate the optional field `access_level_rw`
       if (jsonObj.get("access_level_rw") != null && !jsonObj.get("access_level_rw").isJsonNull()) {
-        AccessLevel.validateJsonElement(jsonObj.get("access_level_rw"));
+        AccessLevel.validateJsonObject(jsonObj.getAsJsonObject("access_level_rw"));
       }
   }
 
@@ -643,31 +683,31 @@ public class CustomField {
 
            @Override
            public CustomField read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of CustomField given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of CustomField
-   * @throws IOException if the JSON string is invalid with respect to CustomField
-   */
+ /**
+  * Create an instance of CustomField given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of CustomField
+  * @throws IOException if the JSON string is invalid with respect to CustomField
+  */
   public static CustomField fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, CustomField.class);
   }
 
-  /**
-   * Convert an instance of CustomField to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of CustomField to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

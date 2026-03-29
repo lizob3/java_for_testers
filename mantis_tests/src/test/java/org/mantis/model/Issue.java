@@ -14,6 +14,7 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.mantis.model.AccountRef;
 import org.mantis.model.Identifier;
@@ -42,10 +42,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -53,401 +55,417 @@ import org.mantis.JSON;
 /**
  * Issue
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class Issue {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nullable
   private Long id;
 
   public static final String SERIALIZED_NAME_PROJECT = "project";
   @SerializedName(SERIALIZED_NAME_PROJECT)
-  @javax.annotation.Nonnull
   private Identifier project;
 
   public static final String SERIALIZED_NAME_CATEGORY = "category";
   @SerializedName(SERIALIZED_NAME_CATEGORY)
-  @javax.annotation.Nullable
   private Identifier category;
 
   public static final String SERIALIZED_NAME_PRIORITY = "priority";
   @SerializedName(SERIALIZED_NAME_PRIORITY)
-  @javax.annotation.Nullable
   private Identifier priority;
 
   public static final String SERIALIZED_NAME_SEVERITY = "severity";
   @SerializedName(SERIALIZED_NAME_SEVERITY)
-  @javax.annotation.Nullable
   private Identifier severity;
 
   public static final String SERIALIZED_NAME_REPRODUCIBILITY = "reproducibility";
   @SerializedName(SERIALIZED_NAME_REPRODUCIBILITY)
-  @javax.annotation.Nullable
   private Identifier reproducibility;
 
   public static final String SERIALIZED_NAME_VERSION = "version";
   @SerializedName(SERIALIZED_NAME_VERSION)
-  @javax.annotation.Nullable
   private Identifier version;
 
   public static final String SERIALIZED_NAME_OS = "os";
   @SerializedName(SERIALIZED_NAME_OS)
-  @javax.annotation.Nullable
   private String os;
 
   public static final String SERIALIZED_NAME_OS_BUILD = "os_build";
   @SerializedName(SERIALIZED_NAME_OS_BUILD)
-  @javax.annotation.Nullable
   private String osBuild;
 
   public static final String SERIALIZED_NAME_PLATFORM = "platform";
   @SerializedName(SERIALIZED_NAME_PLATFORM)
-  @javax.annotation.Nullable
   private String platform;
 
   public static final String SERIALIZED_NAME_SUMMARY = "summary";
   @SerializedName(SERIALIZED_NAME_SUMMARY)
-  @javax.annotation.Nonnull
   private String summary;
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  @javax.annotation.Nonnull
   private String description;
 
   public static final String SERIALIZED_NAME_STEPS_TO_REPRODUCE = "steps_to_reproduce";
   @SerializedName(SERIALIZED_NAME_STEPS_TO_REPRODUCE)
-  @javax.annotation.Nullable
   private String stepsToReproduce;
 
   public static final String SERIALIZED_NAME_ADDITIONAL_INFORMATION = "additional_information";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_INFORMATION)
-  @javax.annotation.Nullable
   private String additionalInformation;
 
   public static final String SERIALIZED_NAME_REPORTER = "reporter";
   @SerializedName(SERIALIZED_NAME_REPORTER)
-  @javax.annotation.Nullable
   private AccountRef reporter;
 
   public static final String SERIALIZED_NAME_HANDLER = "handler";
   @SerializedName(SERIALIZED_NAME_HANDLER)
-  @javax.annotation.Nullable
   private AccountRef handler;
 
   public static final String SERIALIZED_NAME_FILES = "files";
   @SerializedName(SERIALIZED_NAME_FILES)
-  @javax.annotation.Nullable
-  private List<UploadableFile> files = new ArrayList<>();
+  private List<UploadableFile> files;
 
   public Issue() {
   }
 
-  public Issue id(@javax.annotation.Nullable Long id) {
+  public Issue id(Long id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   public Long getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nullable Long id) {
+
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public Issue project(@javax.annotation.Nonnull Identifier project) {
+  public Issue project(Identifier project) {
+    
     this.project = project;
     return this;
   }
 
-  /**
+   /**
    * Get project
    * @return project
-   */
+  **/
   @javax.annotation.Nonnull
   public Identifier getProject() {
     return project;
   }
 
-  public void setProject(@javax.annotation.Nonnull Identifier project) {
+
+  public void setProject(Identifier project) {
     this.project = project;
   }
 
 
-  public Issue category(@javax.annotation.Nullable Identifier category) {
+  public Issue category(Identifier category) {
+    
     this.category = category;
     return this;
   }
 
-  /**
+   /**
    * Get category
    * @return category
-   */
+  **/
   @javax.annotation.Nullable
   public Identifier getCategory() {
     return category;
   }
 
-  public void setCategory(@javax.annotation.Nullable Identifier category) {
+
+  public void setCategory(Identifier category) {
     this.category = category;
   }
 
 
-  public Issue priority(@javax.annotation.Nullable Identifier priority) {
+  public Issue priority(Identifier priority) {
+    
     this.priority = priority;
     return this;
   }
 
-  /**
+   /**
    * Get priority
    * @return priority
-   */
+  **/
   @javax.annotation.Nullable
   public Identifier getPriority() {
     return priority;
   }
 
-  public void setPriority(@javax.annotation.Nullable Identifier priority) {
+
+  public void setPriority(Identifier priority) {
     this.priority = priority;
   }
 
 
-  public Issue severity(@javax.annotation.Nullable Identifier severity) {
+  public Issue severity(Identifier severity) {
+    
     this.severity = severity;
     return this;
   }
 
-  /**
+   /**
    * Get severity
    * @return severity
-   */
+  **/
   @javax.annotation.Nullable
   public Identifier getSeverity() {
     return severity;
   }
 
-  public void setSeverity(@javax.annotation.Nullable Identifier severity) {
+
+  public void setSeverity(Identifier severity) {
     this.severity = severity;
   }
 
 
-  public Issue reproducibility(@javax.annotation.Nullable Identifier reproducibility) {
+  public Issue reproducibility(Identifier reproducibility) {
+    
     this.reproducibility = reproducibility;
     return this;
   }
 
-  /**
+   /**
    * Get reproducibility
    * @return reproducibility
-   */
+  **/
   @javax.annotation.Nullable
   public Identifier getReproducibility() {
     return reproducibility;
   }
 
-  public void setReproducibility(@javax.annotation.Nullable Identifier reproducibility) {
+
+  public void setReproducibility(Identifier reproducibility) {
     this.reproducibility = reproducibility;
   }
 
 
-  public Issue version(@javax.annotation.Nullable Identifier version) {
+  public Issue version(Identifier version) {
+    
     this.version = version;
     return this;
   }
 
-  /**
+   /**
    * Get version
    * @return version
-   */
+  **/
   @javax.annotation.Nullable
   public Identifier getVersion() {
     return version;
   }
 
-  public void setVersion(@javax.annotation.Nullable Identifier version) {
+
+  public void setVersion(Identifier version) {
     this.version = version;
   }
 
 
-  public Issue os(@javax.annotation.Nullable String os) {
+  public Issue os(String os) {
+    
     this.os = os;
     return this;
   }
 
-  /**
+   /**
    * Get os
    * @return os
-   */
+  **/
   @javax.annotation.Nullable
   public String getOs() {
     return os;
   }
 
-  public void setOs(@javax.annotation.Nullable String os) {
+
+  public void setOs(String os) {
     this.os = os;
   }
 
 
-  public Issue osBuild(@javax.annotation.Nullable String osBuild) {
+  public Issue osBuild(String osBuild) {
+    
     this.osBuild = osBuild;
     return this;
   }
 
-  /**
+   /**
    * Get osBuild
    * @return osBuild
-   */
+  **/
   @javax.annotation.Nullable
   public String getOsBuild() {
     return osBuild;
   }
 
-  public void setOsBuild(@javax.annotation.Nullable String osBuild) {
+
+  public void setOsBuild(String osBuild) {
     this.osBuild = osBuild;
   }
 
 
-  public Issue platform(@javax.annotation.Nullable String platform) {
+  public Issue platform(String platform) {
+    
     this.platform = platform;
     return this;
   }
 
-  /**
+   /**
    * Get platform
    * @return platform
-   */
+  **/
   @javax.annotation.Nullable
   public String getPlatform() {
     return platform;
   }
 
-  public void setPlatform(@javax.annotation.Nullable String platform) {
+
+  public void setPlatform(String platform) {
     this.platform = platform;
   }
 
 
-  public Issue summary(@javax.annotation.Nonnull String summary) {
+  public Issue summary(String summary) {
+    
     this.summary = summary;
     return this;
   }
 
-  /**
+   /**
    * Get summary
    * @return summary
-   */
+  **/
   @javax.annotation.Nonnull
   public String getSummary() {
     return summary;
   }
 
-  public void setSummary(@javax.annotation.Nonnull String summary) {
+
+  public void setSummary(String summary) {
     this.summary = summary;
   }
 
 
-  public Issue description(@javax.annotation.Nonnull String description) {
+  public Issue description(String description) {
+    
     this.description = description;
     return this;
   }
 
-  /**
+   /**
    * Get description
    * @return description
-   */
+  **/
   @javax.annotation.Nonnull
   public String getDescription() {
     return description;
   }
 
-  public void setDescription(@javax.annotation.Nonnull String description) {
+
+  public void setDescription(String description) {
     this.description = description;
   }
 
 
-  public Issue stepsToReproduce(@javax.annotation.Nullable String stepsToReproduce) {
+  public Issue stepsToReproduce(String stepsToReproduce) {
+    
     this.stepsToReproduce = stepsToReproduce;
     return this;
   }
 
-  /**
+   /**
    * Get stepsToReproduce
    * @return stepsToReproduce
-   */
+  **/
   @javax.annotation.Nullable
   public String getStepsToReproduce() {
     return stepsToReproduce;
   }
 
-  public void setStepsToReproduce(@javax.annotation.Nullable String stepsToReproduce) {
+
+  public void setStepsToReproduce(String stepsToReproduce) {
     this.stepsToReproduce = stepsToReproduce;
   }
 
 
-  public Issue additionalInformation(@javax.annotation.Nullable String additionalInformation) {
+  public Issue additionalInformation(String additionalInformation) {
+    
     this.additionalInformation = additionalInformation;
     return this;
   }
 
-  /**
+   /**
    * Get additionalInformation
    * @return additionalInformation
-   */
+  **/
   @javax.annotation.Nullable
   public String getAdditionalInformation() {
     return additionalInformation;
   }
 
-  public void setAdditionalInformation(@javax.annotation.Nullable String additionalInformation) {
+
+  public void setAdditionalInformation(String additionalInformation) {
     this.additionalInformation = additionalInformation;
   }
 
 
-  public Issue reporter(@javax.annotation.Nullable AccountRef reporter) {
+  public Issue reporter(AccountRef reporter) {
+    
     this.reporter = reporter;
     return this;
   }
 
-  /**
+   /**
    * Get reporter
    * @return reporter
-   */
+  **/
   @javax.annotation.Nullable
   public AccountRef getReporter() {
     return reporter;
   }
 
-  public void setReporter(@javax.annotation.Nullable AccountRef reporter) {
+
+  public void setReporter(AccountRef reporter) {
     this.reporter = reporter;
   }
 
 
-  public Issue handler(@javax.annotation.Nullable AccountRef handler) {
+  public Issue handler(AccountRef handler) {
+    
     this.handler = handler;
     return this;
   }
 
-  /**
+   /**
    * Get handler
    * @return handler
-   */
+  **/
   @javax.annotation.Nullable
   public AccountRef getHandler() {
     return handler;
   }
 
-  public void setHandler(@javax.annotation.Nullable AccountRef handler) {
+
+  public void setHandler(AccountRef handler) {
     this.handler = handler;
   }
 
 
-  public Issue files(@javax.annotation.Nullable List<UploadableFile> files) {
+  public Issue files(List<UploadableFile> files) {
+    
     this.files = files;
     return this;
   }
@@ -460,16 +478,17 @@ public class Issue {
     return this;
   }
 
-  /**
+   /**
    * Get files
    * @return files
-   */
+  **/
   @javax.annotation.Nullable
   public List<UploadableFile> getFiles() {
     return files;
   }
 
-  public void setFiles(@javax.annotation.Nullable List<UploadableFile> files) {
+
+  public void setFiles(List<UploadableFile> files) {
     this.files = files;
   }
 
@@ -550,102 +569,121 @@ public class Issue {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "project", "category", "priority", "severity", "reproducibility", "version", "os", "os_build", "platform", "summary", "description", "steps_to_reproduce", "additional_information", "reporter", "handler", "files"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("project");
+    openapiFields.add("category");
+    openapiFields.add("priority");
+    openapiFields.add("severity");
+    openapiFields.add("reproducibility");
+    openapiFields.add("version");
+    openapiFields.add("os");
+    openapiFields.add("os_build");
+    openapiFields.add("platform");
+    openapiFields.add("summary");
+    openapiFields.add("description");
+    openapiFields.add("steps_to_reproduce");
+    openapiFields.add("additional_information");
+    openapiFields.add("reporter");
+    openapiFields.add("handler");
+    openapiFields.add("files");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(Arrays.asList("project", "summary", "description"));
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("project");
+    openapiRequiredFields.add("summary");
+    openapiRequiredFields.add("description");
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to Issue
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!Issue.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in Issue is not found in the empty JSON string", Issue.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to Issue
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!Issue.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in Issue is not found in the empty JSON string", Issue.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!Issue.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `Issue` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Issue` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
 
       // check to make sure all required properties/fields are present in the JSON string
       for (String requiredField : Issue.openapiRequiredFields) {
-        if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field `%s` is not found in the JSON string: %s", requiredField, jsonElement.toString()));
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       // validate the required field `project`
-      Identifier.validateJsonElement(jsonObj.get("project"));
+      Identifier.validateJsonObject(jsonObj.getAsJsonObject("project"));
       // validate the optional field `category`
       if (jsonObj.get("category") != null && !jsonObj.get("category").isJsonNull()) {
-        Identifier.validateJsonElement(jsonObj.get("category"));
+        Identifier.validateJsonObject(jsonObj.getAsJsonObject("category"));
       }
       // validate the optional field `priority`
       if (jsonObj.get("priority") != null && !jsonObj.get("priority").isJsonNull()) {
-        Identifier.validateJsonElement(jsonObj.get("priority"));
+        Identifier.validateJsonObject(jsonObj.getAsJsonObject("priority"));
       }
       // validate the optional field `severity`
       if (jsonObj.get("severity") != null && !jsonObj.get("severity").isJsonNull()) {
-        Identifier.validateJsonElement(jsonObj.get("severity"));
+        Identifier.validateJsonObject(jsonObj.getAsJsonObject("severity"));
       }
       // validate the optional field `reproducibility`
       if (jsonObj.get("reproducibility") != null && !jsonObj.get("reproducibility").isJsonNull()) {
-        Identifier.validateJsonElement(jsonObj.get("reproducibility"));
+        Identifier.validateJsonObject(jsonObj.getAsJsonObject("reproducibility"));
       }
       // validate the optional field `version`
       if (jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) {
-        Identifier.validateJsonElement(jsonObj.get("version"));
+        Identifier.validateJsonObject(jsonObj.getAsJsonObject("version"));
       }
       if ((jsonObj.get("os") != null && !jsonObj.get("os").isJsonNull()) && !jsonObj.get("os").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `os` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os").toString()));
       }
       if ((jsonObj.get("os_build") != null && !jsonObj.get("os_build").isJsonNull()) && !jsonObj.get("os_build").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `os_build` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os_build").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `os_build` to be a primitive type in the JSON string but got `%s`", jsonObj.get("os_build").toString()));
       }
       if ((jsonObj.get("platform") != null && !jsonObj.get("platform").isJsonNull()) && !jsonObj.get("platform").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `platform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("platform").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `platform` to be a primitive type in the JSON string but got `%s`", jsonObj.get("platform").toString()));
       }
       if (!jsonObj.get("summary").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `summary` to be a primitive type in the JSON string but got `%s`", jsonObj.get("summary").toString()));
       }
       if (!jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
       }
       if ((jsonObj.get("steps_to_reproduce") != null && !jsonObj.get("steps_to_reproduce").isJsonNull()) && !jsonObj.get("steps_to_reproduce").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `steps_to_reproduce` to be a primitive type in the JSON string but got `%s`", jsonObj.get("steps_to_reproduce").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `steps_to_reproduce` to be a primitive type in the JSON string but got `%s`", jsonObj.get("steps_to_reproduce").toString()));
       }
       if ((jsonObj.get("additional_information") != null && !jsonObj.get("additional_information").isJsonNull()) && !jsonObj.get("additional_information").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `additional_information` to be a primitive type in the JSON string but got `%s`", jsonObj.get("additional_information").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `additional_information` to be a primitive type in the JSON string but got `%s`", jsonObj.get("additional_information").toString()));
       }
       // validate the optional field `reporter`
       if (jsonObj.get("reporter") != null && !jsonObj.get("reporter").isJsonNull()) {
-        AccountRef.validateJsonElement(jsonObj.get("reporter"));
+        AccountRef.validateJsonObject(jsonObj.getAsJsonObject("reporter"));
       }
       // validate the optional field `handler`
       if (jsonObj.get("handler") != null && !jsonObj.get("handler").isJsonNull()) {
-        AccountRef.validateJsonElement(jsonObj.get("handler"));
+        AccountRef.validateJsonObject(jsonObj.getAsJsonObject("handler"));
       }
       if (jsonObj.get("files") != null && !jsonObj.get("files").isJsonNull()) {
         JsonArray jsonArrayfiles = jsonObj.getAsJsonArray("files");
         if (jsonArrayfiles != null) {
           // ensure the json data is an array
           if (!jsonObj.get("files").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `files` to be an array in the JSON string but got `%s`", jsonObj.get("files").toString()));
+            throw new IllegalArgumentException(String.format("Expected the field `files` to be an array in the JSON string but got `%s`", jsonObj.get("files").toString()));
           }
 
           // validate the optional field `files` (array)
           for (int i = 0; i < jsonArrayfiles.size(); i++) {
-            UploadableFile.validateJsonElement(jsonArrayfiles.get(i));
+            UploadableFile.validateJsonObject(jsonArrayfiles.get(i).getAsJsonObject());
           };
         }
       }
@@ -671,31 +709,31 @@ public class Issue {
 
            @Override
            public Issue read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of Issue given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of Issue
-   * @throws IOException if the JSON string is invalid with respect to Issue
-   */
+ /**
+  * Create an instance of Issue given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of Issue
+  * @throws IOException if the JSON string is invalid with respect to Issue
+  */
   public static Issue fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, Issue.class);
   }
 
-  /**
-   * Convert an instance of Issue to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of Issue to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

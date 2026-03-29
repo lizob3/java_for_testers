@@ -14,13 +14,13 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
-import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -37,10 +37,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -48,103 +50,107 @@ import org.mantis.JSON;
 /**
  * AccountRef
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class AccountRef {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
-  @javax.annotation.Nullable
   private Long id;
 
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
-  @javax.annotation.Nullable
   private String name;
 
   public static final String SERIALIZED_NAME_EMAIL = "email";
   @SerializedName(SERIALIZED_NAME_EMAIL)
-  @javax.annotation.Nullable
   private String email;
 
   public static final String SERIALIZED_NAME_REALNAME = "realname";
   @SerializedName(SERIALIZED_NAME_REALNAME)
-  @javax.annotation.Nullable
   private String realname;
 
   public AccountRef() {
   }
 
-  public AccountRef id(@javax.annotation.Nullable Long id) {
+  public AccountRef id(Long id) {
+    
     this.id = id;
     return this;
   }
 
-  /**
+   /**
    * Get id
    * @return id
-   */
+  **/
   @javax.annotation.Nullable
   public Long getId() {
     return id;
   }
 
-  public void setId(@javax.annotation.Nullable Long id) {
+
+  public void setId(Long id) {
     this.id = id;
   }
 
 
-  public AccountRef name(@javax.annotation.Nullable String name) {
+  public AccountRef name(String name) {
+    
     this.name = name;
     return this;
   }
 
-  /**
+   /**
    * Get name
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   public String getName() {
     return name;
   }
 
-  public void setName(@javax.annotation.Nullable String name) {
+
+  public void setName(String name) {
     this.name = name;
   }
 
 
-  public AccountRef email(@javax.annotation.Nullable String email) {
+  public AccountRef email(String email) {
+    
     this.email = email;
     return this;
   }
 
-  /**
+   /**
    * Get email
    * @return email
-   */
+  **/
   @javax.annotation.Nullable
   public String getEmail() {
     return email;
   }
 
-  public void setEmail(@javax.annotation.Nullable String email) {
+
+  public void setEmail(String email) {
     this.email = email;
   }
 
 
-  public AccountRef realname(@javax.annotation.Nullable String realname) {
+  public AccountRef realname(String realname) {
+    
     this.realname = realname;
     return this;
   }
 
-  /**
+   /**
    * Get realname
    * @return realname
-   */
+  **/
   @javax.annotation.Nullable
   public String getRealname() {
     return realname;
   }
 
-  public void setRealname(@javax.annotation.Nullable String realname) {
+
+  public void setRealname(String realname) {
     this.realname = realname;
   }
 
@@ -199,41 +205,44 @@ public class AccountRef {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("id", "name", "email", "realname"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("id");
+    openapiFields.add("name");
+    openapiFields.add("email");
+    openapiFields.add("realname");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to AccountRef
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!AccountRef.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in AccountRef is not found in the empty JSON string", AccountRef.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to AccountRef
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!AccountRef.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in AccountRef is not found in the empty JSON string", AccountRef.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!AccountRef.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `AccountRef` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AccountRef` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
       if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull()) && !jsonObj.get("email").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `email` to be a primitive type in the JSON string but got `%s`", jsonObj.get("email").toString()));
       }
       if ((jsonObj.get("realname") != null && !jsonObj.get("realname").isJsonNull()) && !jsonObj.get("realname").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `realname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("realname").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `realname` to be a primitive type in the JSON string but got `%s`", jsonObj.get("realname").toString()));
       }
   }
 
@@ -257,31 +266,31 @@ public class AccountRef {
 
            @Override
            public AccountRef read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of AccountRef given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of AccountRef
-   * @throws IOException if the JSON string is invalid with respect to AccountRef
-   */
+ /**
+  * Create an instance of AccountRef given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of AccountRef
+  * @throws IOException if the JSON string is invalid with respect to AccountRef
+  */
   public static AccountRef fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, AccountRef.class);
   }
 
-  /**
-   * Convert an instance of AccountRef to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of AccountRef to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

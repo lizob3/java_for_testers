@@ -14,6 +14,7 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.mantis.model.Project;
 
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -51,17 +53,17 @@ import org.mantis.JSON;
 /**
  * GetProjectResponse
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class GetProjectResponse {
   public static final String SERIALIZED_NAME_PROJECTS = "projects";
   @SerializedName(SERIALIZED_NAME_PROJECTS)
-  @javax.annotation.Nullable
-  private List<Project> projects = new ArrayList<>();
+  private List<Project> projects;
 
   public GetProjectResponse() {
   }
 
-  public GetProjectResponse projects(@javax.annotation.Nullable List<Project> projects) {
+  public GetProjectResponse projects(List<Project> projects) {
+    
     this.projects = projects;
     return this;
   }
@@ -74,16 +76,17 @@ public class GetProjectResponse {
     return this;
   }
 
-  /**
+   /**
    * Get projects
    * @return projects
-   */
+  **/
   @javax.annotation.Nullable
   public List<Project> getProjects() {
     return projects;
   }
 
-  public void setProjects(@javax.annotation.Nullable List<Project> projects) {
+
+  public void setProjects(List<Project> projects) {
     this.projects = projects;
   }
 
@@ -132,44 +135,44 @@ public class GetProjectResponse {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("projects"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("projects");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to GetProjectResponse
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!GetProjectResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in GetProjectResponse is not found in the empty JSON string", GetProjectResponse.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to GetProjectResponse
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!GetProjectResponse.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in GetProjectResponse is not found in the empty JSON string", GetProjectResponse.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!GetProjectResponse.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `GetProjectResponse` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GetProjectResponse` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if (jsonObj.get("projects") != null && !jsonObj.get("projects").isJsonNull()) {
         JsonArray jsonArrayprojects = jsonObj.getAsJsonArray("projects");
         if (jsonArrayprojects != null) {
           // ensure the json data is an array
           if (!jsonObj.get("projects").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `projects` to be an array in the JSON string but got `%s`", jsonObj.get("projects").toString()));
+            throw new IllegalArgumentException(String.format("Expected the field `projects` to be an array in the JSON string but got `%s`", jsonObj.get("projects").toString()));
           }
 
           // validate the optional field `projects` (array)
           for (int i = 0; i < jsonArrayprojects.size(); i++) {
-            Project.validateJsonElement(jsonArrayprojects.get(i));
+            Project.validateJsonObject(jsonArrayprojects.get(i).getAsJsonObject());
           };
         }
       }
@@ -195,31 +198,31 @@ public class GetProjectResponse {
 
            @Override
            public GetProjectResponse read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of GetProjectResponse given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of GetProjectResponse
-   * @throws IOException if the JSON string is invalid with respect to GetProjectResponse
-   */
+ /**
+  * Create an instance of GetProjectResponse given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of GetProjectResponse
+  * @throws IOException if the JSON string is invalid with respect to GetProjectResponse
+  */
   public static GetProjectResponse fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, GetProjectResponse.class);
   }
 
-  /**
-   * Convert an instance of GetProjectResponse to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of GetProjectResponse to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

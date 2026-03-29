@@ -35,6 +35,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class UserApi {
     private ApiClient localVarApiClient;
@@ -80,15 +81,14 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> User successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call userAddCall(@javax.annotation.Nonnull User body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call userAddCall(User body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -133,7 +133,7 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call userAddValidateBeforeCall(@javax.annotation.Nonnull User body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call userAddValidateBeforeCall(User body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling userAdd(Async)");
@@ -150,15 +150,14 @@ public class UserApi {
      * @return UserAddResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> User successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public UserAddResponse userAdd(@javax.annotation.Nonnull User body) throws ApiException {
+    public UserAddResponse userAdd(User body) throws ApiException {
         ApiResponse<UserAddResponse> localVarResp = userAddWithHttpInfo(body);
         return localVarResp.getData();
     }
@@ -170,15 +169,14 @@ public class UserApi {
      * @return ApiResponse&lt;UserAddResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> User successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<UserAddResponse> userAddWithHttpInfo(@javax.annotation.Nonnull User body) throws ApiException {
+    public ApiResponse<UserAddResponse> userAddWithHttpInfo(User body) throws ApiException {
         okhttp3.Call localVarCall = userAddValidateBeforeCall(body, null);
         Type localVarReturnType = new TypeToken<UserAddResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -192,15 +190,14 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 201 </td><td> User successfully created </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call userAddAsync(@javax.annotation.Nonnull User body, final ApiCallback<UserAddResponse> _callback) throws ApiException {
+    public okhttp3.Call userAddAsync(User body, final ApiCallback<UserAddResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = userAddValidateBeforeCall(body, _callback);
         Type localVarReturnType = new TypeToken<UserAddResponse>(){}.getType();
@@ -214,8 +211,7 @@ public class UserApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> User deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -223,7 +219,7 @@ public class UserApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call userDeleteCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call userDeleteCall(Long id, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -268,7 +264,7 @@ public class UserApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call userDeleteValidateBeforeCall(@javax.annotation.Nonnull Long id, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call userDeleteValidateBeforeCall(Long id, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException("Missing the required parameter 'id' when calling userDelete(Async)");
@@ -284,8 +280,7 @@ public class UserApi {
      * @param id The user id. (required)
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> User deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -293,7 +288,7 @@ public class UserApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public void userDelete(@javax.annotation.Nonnull Long id) throws ApiException {
+    public void userDelete(Long id) throws ApiException {
         userDeleteWithHttpInfo(id);
     }
 
@@ -304,8 +299,7 @@ public class UserApi {
      * @return ApiResponse&lt;Void&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> User deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -313,7 +307,7 @@ public class UserApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Void> userDeleteWithHttpInfo(@javax.annotation.Nonnull Long id) throws ApiException {
+    public ApiResponse<Void> userDeleteWithHttpInfo(Long id) throws ApiException {
         okhttp3.Call localVarCall = userDeleteValidateBeforeCall(id, null);
         return localVarApiClient.execute(localVarCall);
     }
@@ -326,8 +320,7 @@ public class UserApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 204 </td><td> User deleted successfully </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
@@ -335,7 +328,7 @@ public class UserApi {
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call userDeleteAsync(@javax.annotation.Nonnull Long id, final ApiCallback<Void> _callback) throws ApiException {
+    public okhttp3.Call userDeleteAsync(Long id, final ApiCallback<Void> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = userDeleteValidateBeforeCall(id, _callback);
         localVarApiClient.executeAsync(localVarCall, _callback);

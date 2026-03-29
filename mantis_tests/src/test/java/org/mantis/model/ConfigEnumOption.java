@@ -14,6 +14,7 @@
 package org.mantis.model;
 
 import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -21,7 +22,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.mantis.model.ConfigEnumOptionValue;
 
@@ -40,10 +40,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.mantis.JSON;
@@ -51,41 +53,42 @@ import org.mantis.JSON;
 /**
  * ConfigEnumOption
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-26T00:05:27.509810400+03:00[Europe/Minsk]", comments = "Generator version: 7.19.0")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-03-29T22:24:32.148604900+03:00[Europe/Minsk]")
 public class ConfigEnumOption {
   public static final String SERIALIZED_NAME_OPTION = "option";
   @SerializedName(SERIALIZED_NAME_OPTION)
-  @javax.annotation.Nullable
   private String option;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
-  @javax.annotation.Nullable
-  private List<ConfigEnumOptionValue> value = new ArrayList<>();
+  private List<ConfigEnumOptionValue> value;
 
   public ConfigEnumOption() {
   }
 
-  public ConfigEnumOption option(@javax.annotation.Nullable String option) {
+  public ConfigEnumOption option(String option) {
+    
     this.option = option;
     return this;
   }
 
-  /**
+   /**
    * Get option
    * @return option
-   */
+  **/
   @javax.annotation.Nullable
   public String getOption() {
     return option;
   }
 
-  public void setOption(@javax.annotation.Nullable String option) {
+
+  public void setOption(String option) {
     this.option = option;
   }
 
 
-  public ConfigEnumOption value(@javax.annotation.Nullable List<ConfigEnumOptionValue> value) {
+  public ConfigEnumOption value(List<ConfigEnumOptionValue> value) {
+    
     this.value = value;
     return this;
   }
@@ -98,16 +101,17 @@ public class ConfigEnumOption {
     return this;
   }
 
-  /**
+   /**
    * Get value
    * @return value
-   */
+  **/
   @javax.annotation.Nullable
   public List<ConfigEnumOptionValue> getValue() {
     return value;
   }
 
-  public void setValue(@javax.annotation.Nullable List<ConfigEnumOptionValue> value) {
+
+  public void setValue(List<ConfigEnumOptionValue> value) {
     this.value = value;
   }
 
@@ -158,47 +162,48 @@ public class ConfigEnumOption {
 
   static {
     // a set of all properties/fields (JSON key names)
-    openapiFields = new HashSet<String>(Arrays.asList("option", "value"));
+    openapiFields = new HashSet<String>();
+    openapiFields.add("option");
+    openapiFields.add("value");
 
     // a set of required properties/fields (JSON key names)
-    openapiRequiredFields = new HashSet<String>(0);
+    openapiRequiredFields = new HashSet<String>();
   }
 
-  /**
-   * Validates the JSON Element and throws an exception if issues found
-   *
-   * @param jsonElement JSON Element
-   * @throws IOException if the JSON Element is invalid with respect to ConfigEnumOption
-   */
-  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-      if (jsonElement == null) {
-        if (!ConfigEnumOption.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The required field(s) %s in ConfigEnumOption is not found in the empty JSON string", ConfigEnumOption.openapiRequiredFields.toString()));
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to ConfigEnumOption
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!ConfigEnumOption.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConfigEnumOption is not found in the empty JSON string", ConfigEnumOption.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
-      for (Map.Entry<String, JsonElement> entry : entries) {
+      for (Entry<String, JsonElement> entry : entries) {
         if (!ConfigEnumOption.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `ConfigEnumOption` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConfigEnumOption` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("option") != null && !jsonObj.get("option").isJsonNull()) && !jsonObj.get("option").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `option` to be a primitive type in the JSON string but got `%s`", jsonObj.get("option").toString()));
+        throw new IllegalArgumentException(String.format("Expected the field `option` to be a primitive type in the JSON string but got `%s`", jsonObj.get("option").toString()));
       }
       if (jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) {
         JsonArray jsonArrayvalue = jsonObj.getAsJsonArray("value");
         if (jsonArrayvalue != null) {
           // ensure the json data is an array
           if (!jsonObj.get("value").isJsonArray()) {
-            throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `value` to be an array in the JSON string but got `%s`", jsonObj.get("value").toString()));
+            throw new IllegalArgumentException(String.format("Expected the field `value` to be an array in the JSON string but got `%s`", jsonObj.get("value").toString()));
           }
 
           // validate the optional field `value` (array)
           for (int i = 0; i < jsonArrayvalue.size(); i++) {
-            ConfigEnumOptionValue.validateJsonElement(jsonArrayvalue.get(i));
+            ConfigEnumOptionValue.validateJsonObject(jsonArrayvalue.get(i).getAsJsonObject());
           };
         }
       }
@@ -224,31 +229,31 @@ public class ConfigEnumOption {
 
            @Override
            public ConfigEnumOption read(JsonReader in) throws IOException {
-             JsonElement jsonElement = elementAdapter.read(in);
-             validateJsonElement(jsonElement);
-             return thisAdapter.fromJsonTree(jsonElement);
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
            }
 
        }.nullSafe();
     }
   }
 
-  /**
-   * Create an instance of ConfigEnumOption given an JSON string
-   *
-   * @param jsonString JSON string
-   * @return An instance of ConfigEnumOption
-   * @throws IOException if the JSON string is invalid with respect to ConfigEnumOption
-   */
+ /**
+  * Create an instance of ConfigEnumOption given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of ConfigEnumOption
+  * @throws IOException if the JSON string is invalid with respect to ConfigEnumOption
+  */
   public static ConfigEnumOption fromJson(String jsonString) throws IOException {
     return JSON.getGson().fromJson(jsonString, ConfigEnumOption.class);
   }
 
-  /**
-   * Convert an instance of ConfigEnumOption to an JSON string
-   *
-   * @return JSON string
-   */
+ /**
+  * Convert an instance of ConfigEnumOption to an JSON string
+  *
+  * @return JSON string
+  */
   public String toJson() {
     return JSON.getGson().toJson(this);
   }

@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class LocalizationApi {
     private ApiClient localVarApiClient;
@@ -79,15 +80,14 @@ public class LocalizationApi {
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call langGetCall(@javax.annotation.Nonnull List<String> string, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call langGetCall(List<String> string, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -136,7 +136,7 @@ public class LocalizationApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call langGetValidateBeforeCall(@javax.annotation.Nonnull List<String> string, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call langGetValidateBeforeCall(List<String> string, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'string' is set
         if (string == null) {
             throw new ApiException("Missing the required parameter 'string' when calling langGet(Async)");
@@ -153,15 +153,14 @@ public class LocalizationApi {
      * @return LangGetResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public LangGetResponse langGet(@javax.annotation.Nonnull List<String> string) throws ApiException {
+    public LangGetResponse langGet(List<String> string) throws ApiException {
         ApiResponse<LangGetResponse> localVarResp = langGetWithHttpInfo(string);
         return localVarResp.getData();
     }
@@ -173,15 +172,14 @@ public class LocalizationApi {
      * @return ApiResponse&lt;LangGetResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<LangGetResponse> langGetWithHttpInfo(@javax.annotation.Nonnull List<String> string) throws ApiException {
+    public ApiResponse<LangGetResponse> langGetWithHttpInfo(List<String> string) throws ApiException {
         okhttp3.Call localVarCall = langGetValidateBeforeCall(string, null);
         Type localVarReturnType = new TypeToken<LangGetResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -195,15 +193,14 @@ public class LocalizationApi {
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
-     <table border="1">
-       <caption>Response Details</caption>
+     <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
         <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
         <tr><td> 403 </td><td> Access denied </td><td>  -  </td></tr>
         <tr><td> 503 </td><td> Mantis Offline </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call langGetAsync(@javax.annotation.Nonnull List<String> string, final ApiCallback<LangGetResponse> _callback) throws ApiException {
+    public okhttp3.Call langGetAsync(List<String> string, final ApiCallback<LangGetResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = langGetValidateBeforeCall(string, _callback);
         Type localVarReturnType = new TypeToken<LangGetResponse>(){}.getType();
