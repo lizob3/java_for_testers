@@ -1,13 +1,17 @@
 package by.lisakeyy.mantis.manager;
 
 import by.lisakeyy.mantis.model.IssueData;
+import by.lisakeyy.mantis.model.UserData;
 import org.mantis.ApiClient;
 import org.mantis.ApiException;
 import org.mantis.Configuration;
 import org.mantis.api.IssuesApi;
+import org.mantis.api.UserApi;
 import org.mantis.auth.ApiKeyAuth;
+import org.mantis.model.AccessLevel;
 import org.mantis.model.Identifier;
 import org.mantis.model.Issue;
+import org.mantis.model.User;
 
 public class RestApiHelper extends HelperBase {
 
@@ -17,7 +21,7 @@ public class RestApiHelper extends HelperBase {
 
         super(manager);
         defaultClient = Configuration.getDefaultApiClient();
-        defaultClient.setBasePath(String.format("%s/mantisbt-2.28.1/api/rest", manager.property("james.apiBaseUrl")));
+        defaultClient.setBasePath(String.format("%s/api/rest", manager.property("web.baseUrl")));
         ApiKeyAuth Authorization = (ApiKeyAuth) defaultClient.getAuthentication("Authorization");
         Authorization.setApiKey(manager.property("apiKey"));
     }
@@ -36,6 +40,19 @@ public class RestApiHelper extends HelperBase {
         IssuesApi apiInstance = new IssuesApi(defaultClient);
         try {
             apiInstance.issueAdd(issue);
+        } catch (ApiException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void startCreatingAccount(UserData userData) {
+        User user = new User(); // User | The user to add.
+        user.setUsername(userData.username());
+        user.setEmail(userData.email());
+
+        UserApi apiInstance = new UserApi(defaultClient);
+        try {
+            apiInstance.userAdd(user);
         } catch (ApiException e) {
             throw new RuntimeException(e);
         }
