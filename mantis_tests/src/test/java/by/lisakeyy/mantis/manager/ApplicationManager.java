@@ -23,6 +23,7 @@ public class ApplicationManager {
     private WebSiteHelper website;
     private JamesApiHelper jamesApiHelper;
     private RestApiHelper restApiHelper;
+    private SoapApiHelper soapApiHelper;
 
     public void init(String browser, Properties properties) {
         this.browser = browser;
@@ -91,6 +92,13 @@ public class ApplicationManager {
             restApiHelper = new RestApiHelper(this);
         }
         return restApiHelper;
+    }
+
+    public SoapApiHelper soap() {
+        if (soapApiHelper == null) {
+            soapApiHelper = new SoapApiHelper(this);
+        }
+        return soapApiHelper;
     }
 
     public String property(String name) {

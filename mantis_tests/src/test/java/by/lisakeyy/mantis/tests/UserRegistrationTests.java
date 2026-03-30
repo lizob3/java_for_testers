@@ -3,13 +3,11 @@ package by.lisakeyy.mantis.tests;
 import by.lisakeyy.mantis.common.CommonFunctions;
 import by.lisakeyy.mantis.model.UserData;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.time.Duration;
 import java.util.function.Supplier;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class UserRegistrationTests extends TestBase {

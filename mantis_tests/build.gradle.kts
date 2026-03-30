@@ -32,6 +32,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
     testImplementation("org.mockito:mockito-core:3.12.4")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.3")
+    implementation("biz.futureware.mantis:mantis-axis-soap-client:1.2.19")
 }
 
 tasks.test {
