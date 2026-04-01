@@ -68,7 +68,7 @@ public class HibernateHelper extends HelperBase {
             id = "0";
         }
         return new ContactRecord(Integer.parseInt(id), data.firstName(), data.lastName(), data.address(),
-                data.email(), data.email2(), data.email3(), data.mobilePhone());
+                data.email(), data.email2(), data.email3(), data.mobilePhone(), data.homePhone(), data.workPhone());
     }
 
     public List<GroupData> getGroupList() {

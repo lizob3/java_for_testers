@@ -51,7 +51,8 @@ public class ContactRecord {
 
     }
 
-    public ContactRecord(int id, String firstName, String lastName, String address, String email, String email2, String email3, String mobilePhone) {
+    public ContactRecord(int id, String firstName, String lastName, String address, String email, String email2,
+                         String email3, String mobilePhone, String homePhone, String workPhone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -60,5 +61,7 @@ public class ContactRecord {
         this.email2 = email2;
         this.email3 = email3;
         this.mobilePhone = mobilePhone;
+        this.homePhone = homePhone;
+        this.workPhone = workPhone;
     }
 }

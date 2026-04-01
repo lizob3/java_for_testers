@@ -35,7 +35,7 @@ public class ContactInfoTests extends TestBase {
         }
         var contacts = app.hbm().getContactList();
         var rnd = new Random();
-        var contact = contacts.get(rnd.nextInt(contacts.size() - 1));
+        var contact = contacts.get(rnd.nextInt(contacts.size()));
 
         var infoFromMainPage = app.contacts().getInfoFormMainPage(contact);
         var infoFromEditPage = app.contacts().getInfoFromEditPage(contact);

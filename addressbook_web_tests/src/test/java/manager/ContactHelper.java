@@ -101,7 +101,7 @@ public class ContactHelper extends HelperBase {
     }
 
     private void openHomePage() {
-        click(By.linkText("home"));
+        click(By.id("logo"));
     }
 
     private void removeSelectedContacts() {
@@ -117,7 +117,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public int getCount() {
-        openHomePage();;
+        openHomePage();
         return manager.driver.findElements(By.name("selected[]")).size();
     }
 
@@ -159,6 +159,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public Map<String, String> getPhones() {
+        openHomePage();
         var result = new HashMap<String, String>();
         List<WebElement> rows = manager.driver.findElements(By.name("entry"));
         for (WebElement row : rows) {

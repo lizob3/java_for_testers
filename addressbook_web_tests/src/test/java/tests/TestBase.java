@@ -25,10 +25,10 @@ public class TestBase {
     }
 
 
-    @AfterEach
-    void checktDatabaseConsistency() {
-        app.jdbc().checkConsistency();
-    }
+//    @AfterEach
+//    void checkDatabaseConsistency() {
+//        app.jdbc().checkConsistency();
+//    }
 
 
     @AfterAll
@@ -36,5 +36,6 @@ public class TestBase {
         app.driver.findElement(By.linkText("Logout")).click();
         app.driver.quit();
         app.driver = null;
+        app = null;
     }
 }

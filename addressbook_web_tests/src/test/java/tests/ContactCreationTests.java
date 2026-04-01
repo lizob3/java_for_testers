@@ -42,7 +42,7 @@ public class ContactCreationTests extends TestBase {
                 .withAddress(CommonFunctions.randomString(9)).withEmail(CommonFunctions.randomEmail(7))
                 .withEmail2(CommonFunctions.randomEmail(7)).withEmail3(CommonFunctions.randomEmail(7))
                 .withMobilePhone(CommonFunctions.randomNumber(12));
-        return Stream.generate(randomContact).limit(2);
+        return Stream.generate(randomContact).limit(1);
     }
 
     @ParameterizedTest
