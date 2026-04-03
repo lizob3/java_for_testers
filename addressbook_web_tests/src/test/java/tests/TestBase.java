@@ -33,7 +33,6 @@ public class TestBase {
 
     @AfterAll
     static void tearDown() {
-        app.driver.findElement(By.linkText("Logout")).click();
         app.driver.quit();
         app.driver = null;
         app = null;
