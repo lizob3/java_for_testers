@@ -1,5 +1,7 @@
 package lisakeyy.geometry.figures;
 
+import java.util.Objects;
+
 import static java.lang.Math.sqrt;
 
 public class Triangle {
@@ -41,5 +43,34 @@ public class Triangle {
         var text = String.format("Triangle's perimeter with sides %f, %f, %f = %f", triangle.side1,
                 triangle.side2, triangle.side3, triangle.perimeter());
         System.out.println(text);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Triangle triangle = (Triangle) o;
+        return (Double.compare(side1, triangle.side1) == 0
+                    && Double.compare(side2, triangle.side2) == 0
+                    && Double.compare(side3, triangle.side3) == 0) ||
+                (Double.compare(side1, triangle.side2) == 0
+                    && Double.compare(side2, triangle.side3) == 0
+                    && Double.compare(side3, triangle.side1) == 0) ||
+                (Double.compare(side1, triangle.side3) == 0
+                    && Double.compare(side2, triangle.side2) == 0
+                    && Double.compare(side3, triangle.side1) == 0) ||
+                (Double.compare(side1, triangle.side1) == 0
+                    && Double.compare(side2, triangle.side3) == 0
+                    && Double.compare(side3, triangle.side2) == 0) ||
+                (Double.compare(side1, triangle.side2) == 0
+                    && Double.compare(side2, triangle.side1) == 0
+                    && Double.compare(side3, triangle.side3) == 0) ||
+                (Double.compare(side1, triangle.side3) == 0
+                    && Double.compare(side2, triangle.side1) == 0
+                    && Double.compare(side3, triangle.side2) == 0);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(side1, side2, side3);
     }
 }
