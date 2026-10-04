@@ -20,11 +20,8 @@ public class GroupHelper {
     public void createGroup(GroupData group) {
         openGroupsPage();
         manager.driver.findElement(By.name("new")).click();
-        manager.driver.findElement(By.name("group_name")).click();
         manager.driver.findElement(By.name("group_name")).sendKeys(group.name());
-        manager.driver.findElement(By.name("group_header")).click();
         manager.driver.findElement(By.name("group_header")).sendKeys(group.header());
-        manager.driver.findElement(By.name("group_footer")).click();
         manager.driver.findElement(By.name("group_footer")).sendKeys(group.footer());
         manager.driver.findElement(By.name("submit")).click();
         manager.driver.findElement(By.linkText("groups")).click();
